@@ -5,11 +5,11 @@ import { updateProfile } from 'firebase/auth';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Register = () => {
-    const { createUserAccout } = useAuth()
+    const { createUserAccout, user } = useAuth()
     const [error, setError] = useState('')
     const [showPassword, setShowPassword] = useState(false)
     // console.log(createAccout);
-
+    console.log(user);
     const showPasswordBtn = () => {
         setShowPassword(!showPassword)
     }
@@ -68,7 +68,7 @@ const Register = () => {
                                 <span className="label-text font-semibold">Password <span className='text-red-600 text-lg'>*</span></span>
                             </label>
                             <input name='password' type={showPassword ? 'text' : 'password'} placeholder="Enter your password" className="input input-bordered" required />
-                            <span className='absolute right-4 top-14 text-xl' onClick={showPasswordBtn}>{showPassword? <FaEye></FaEye>:<FaEyeSlash></FaEyeSlash>}</span>
+                            <span className='absolute right-4 top-14 text-xl' onClick={showPasswordBtn}>{showPassword ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>}</span>
                         </div>
                         <div className="form-control">
                             <label className="label">
