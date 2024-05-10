@@ -2,6 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Register = () => {
+    const handelRegisterBtn = (e) => {
+        e.preventDefault()
+        const form = e.target
+        const name = form.name.value
+        const email = form.email.value
+        const password = form.password.value
+        const photo = form.photo.value
+        console.log(name,email,password,photo);
+    }
     return (
         <div className="hero min-h-screen bg-base-200 font-poppins">
             <div className="hero-content">
@@ -10,33 +19,33 @@ const Register = () => {
                         <h1 className="text-4xl font-bold font-palyfair">Create Account!</h1>
                         {/* <p className="py-3">Enter your email and password to access your account</p> */}
                     </div>
-                    <form className="card-body -mt-5">
+                    <form className="card-body -mt-5" onSubmit={handelRegisterBtn}>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text font-semibold">Name <span className='text-red-600 text-lg'>*</span></span>
                             </label>
-                            <input type="text" placeholder="Enter your name" className="input input-bordered" required />
+                            <input name='name' type="text" placeholder="Enter your name" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text font-semibold">Email <span className='text-red-600 text-lg'>*</span></span>
                             </label>
-                            <input type="email" placeholder="Enter your email" className="input input-bordered" required />
+                            <input name='email' type="email" placeholder="Enter your email" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text font-semibold">Password <span className='text-red-600 text-lg'>*</span></span>
                             </label>
-                            <input type="password" placeholder="Enter your password" className="input input-bordered" required />
+                            <input name='password' type="password" placeholder="Enter your password" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text font-semibold">Photo URL <span className='text-red-600 text-lg'>*</span></span>
                             </label>
-                            <input type="url" placeholder="Enter your photo url" className="input input-bordered" required />
+                            <input name='photo' type="url" placeholder="Enter your photo url" className="input input-bordered" required />
                         </div>
                         <div className="form-control mt-3">
-                            <button className="btn btn-primary text-lg font-semibold font-palyfair text-white">Register</button>
+                            <input type='submit' className="btn btn-primary text-lg font-semibold font-palyfair text-white" value='Register'></input>
                         </div>
                     </form>
                     <div>
