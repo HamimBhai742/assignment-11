@@ -7,8 +7,8 @@ const Register = () => {
             <div className="hero-content">
                 <div className="card  w-full lg:w-[650px] bg-base-100">
                     <div className="text-center pt-3">
-                        <h1 className="text-5xl font-bold font-palyfair">Welcome Back!</h1>
-                        <p className="py-3">Enter your email and password to access your account</p>
+                        <h1 className="text-4xl font-bold font-palyfair">Create Account!</h1>
+                        {/* <p className="py-3">Enter your email and password to access your account</p> */}
                     </div>
                     <form className="card-body -mt-5">
                         <div className="form-control">
