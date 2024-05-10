@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
+import { updateProfile } from 'firebase/auth';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Register = () => {
     const { createUserAccout } = useAuth()
+    const [error, setError] = useState('')
+    const [showPassword, setShowPassword] = useState(false)
     // console.log(createAccout);
+
+    const showPasswordBtn = () => {
+        setShowPassword(!showPassword)
+    }
     const handelRegisterBtn = (e) => {
         e.preventDefault()
         const form = e.target
@@ -12,9 +20,22 @@ const Register = () => {
         const email = form.email.value
         const password = form.password.value
         const photo = form.photo.value
+
+        if (password.length < 6) {
+            setError('Password minimum 6 charecter')
+            return
+        }
+        else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/.test(password)) {
+            setError('Please provide strong password')
+            return
+        }
         createUserAccout(email, password)
             .then(result => {
                 console.log(result.user);
+                updateProfile(result.user, {
+                    displayName: name, photoURL: photo
+                })
+                form.reset()
             })
             .catch(error => {
                 console.log(error);
@@ -42,11 +63,12 @@ const Register = () => {
                             </label>
                             <input name='email' type="email" placeholder="Enter your email" className="input input-bordered" required />
                         </div>
-                        <div className="form-control">
+                        <div className="form-control relative">
                             <label className="label">
                                 <span className="label-text font-semibold">Password <span className='text-red-600 text-lg'>*</span></span>
                             </label>
-                            <input name='password' type="password" placeholder="Enter your password" className="input input-bordered" required />
+                            <input name='password' type={showPassword ? 'text' : 'password'} placeholder="Enter your password" className="input input-bordered" required />
+                            <span className='absolute right-4 top-14 text-xl' onClick={showPasswordBtn}>{showPassword? <FaEye></FaEye>:<FaEyeSlash></FaEyeSlash>}</span>
                         </div>
                         <div className="form-control">
                             <label className="label">
@@ -54,6 +76,7 @@ const Register = () => {
                             </label>
                             <input name='photo' type="url" placeholder="Enter your photo url" className="input input-bordered" required />
                         </div>
+                        <p className='text-sm text-[red]'>{error}</p>
                         <div className="form-control mt-3">
                             <input type='submit' className="btn btn-primary text-lg font-semibold font-palyfair text-white" value='Register'></input>
                         </div>
