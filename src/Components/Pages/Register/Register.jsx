@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 
 const Register = () => {
+    const { createUserAccout } = useAuth()
+    // console.log(createAccout);
     const handelRegisterBtn = (e) => {
         e.preventDefault()
         const form = e.target
@@ -9,7 +12,14 @@ const Register = () => {
         const email = form.email.value
         const password = form.password.value
         const photo = form.photo.value
-        console.log(name,email,password,photo);
+        createUserAccout(email, password)
+            .then(result => {
+                console.log(result.user);
+            })
+            .catch(error => {
+                console.log(error);
+            })
+        // console.log(name, email, password, photo);
     }
     return (
         <div className="hero min-h-screen bg-base-200 font-poppins">
