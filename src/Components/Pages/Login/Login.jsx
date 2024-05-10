@@ -1,8 +1,46 @@
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
+import Swal from 'sweetalert2'
 
 
 const Login = () => {
+    const { logInUserAccount, loginWithGoogle } = useAuth()
+    const navigate = useNavigate()
+    const handelLoginBtn = (e) => {
+        e.preventDefault()
+        const form = e.target
+        const email = form.email.value
+        const password = form.password.value
+        logInUserAccount(email, password)
+            .then(result => {
+                console.log(result.user);
+                Swal.fire({
+                    title: "Success!",
+                    text: "Your account successfully login!",
+                    icon: "success"
+                });
+                form.reset()
+                navigate('/')
+            })
+            .catch(error => {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Incorrect your password or email!",
+                });
+            })
+
+    }
+    const handelGoogleLogin = () => {
+        loginWithGoogle()
+            .then(result => {
+                console.log(result.user);
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
     return (
         <div className="hero min-h-screen bg-base-200 font-poppins">
             <div className="hero-content">
@@ -11,18 +49,18 @@ const Login = () => {
                         <h1 className="text-4xl font-bold font-palyfair">Welcome Back!</h1>
                         <p className="py-3">Enter your email and password to access your account</p>
                     </div>
-                    <form className="card-body -mt-5">
+                    <form className="card-body -mt-5" onSubmit={handelLoginBtn}>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text font-semibold">Email <span className='text-red-600 text-lg'>*</span></span>
                             </label>
-                            <input type="email" placeholder="Enter your email" className="input input-bordered" required />
+                            <input type="email" name="email" placeholder="Enter your email" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text font-semibold">Password <span className='text-red-600 text-lg'>*</span></span>
                             </label>
-                            <input type="password" placeholder="Enter your password" className="input input-bordered" required />
+                            <input type="password" name="password" placeholder="Enter your password" className="input input-bordered" required />
                             <label className="label">
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>
@@ -36,7 +74,7 @@ const Login = () => {
                         <p className="px-3 dark:text-gray-600">OR</p>
                         <hr className="w-full dark:text-gray-600" />
                     </div>
-                    <div className="p-5">
+                    <div className="p-5" onClick={handelGoogleLogin}>
                         <p className="border-2 p-3 rounded-lg flex items-center justify-center gap-3 font-semibold"><span className="text-3xl"><FcGoogle></FcGoogle></span>Login With Google</p>
                     </div>
                     <div>
