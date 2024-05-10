@@ -1,8 +1,7 @@
-import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-
-const Login = () => {
+const Register = () => {
     return (
         <div className="hero min-h-screen bg-base-200 font-poppins">
             <div className="hero-content">
@@ -14,6 +13,12 @@ const Login = () => {
                     <form className="card-body -mt-5">
                         <div className="form-control">
                             <label className="label">
+                                <span className="label-text font-semibold">Name <span className='text-red-600 text-lg'>*</span></span>
+                            </label>
+                            <input type="text" placeholder="Enter your name" className="input input-bordered" required />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
                                 <span className="label-text font-semibold">Email <span className='text-red-600 text-lg'>*</span></span>
                             </label>
                             <input type="email" placeholder="Enter your email" className="input input-bordered" required />
@@ -23,24 +28,19 @@ const Login = () => {
                                 <span className="label-text font-semibold">Password <span className='text-red-600 text-lg'>*</span></span>
                             </label>
                             <input type="password" placeholder="Enter your password" className="input input-bordered" required />
-                            <label className="label">
-                                <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                            </label>
                         </div>
                         <div className="form-control">
-                            <button className="btn btn-primary text-lg font-semibold font-palyfair text-white">Login</button>
+                            <label className="label">
+                                <span className="label-text font-semibold">Photo URL <span className='text-red-600 text-lg'>*</span></span>
+                            </label>
+                            <input type="url" placeholder="Enter your photo url" className="input input-bordered" required />
+                        </div>
+                        <div className="form-control mt-3">
+                            <button className="btn btn-primary text-lg font-semibold font-palyfair text-white">Register</button>
                         </div>
                     </form>
-                    <div className="flex items-center w-full">
-                        <hr className="w-full dark:text-gray-600" />
-                        <p className="px-3 dark:text-gray-600">OR</p>
-                        <hr className="w-full dark:text-gray-600" />
-                    </div>
-                    <div className="p-5">
-                        <p className="border-2 p-3 rounded-lg flex items-center justify-center gap-3 font-semibold"><span className="text-3xl"><FcGoogle></FcGoogle></span>Login With Google</p>
-                    </div>
                     <div>
-                        <p className="text-center py-3">Don't have an account? <Link to='/register' className="font-semibold text-violet-600 hover:underline">Register here</Link></p>
+                        <p className="text-center pb-5">Already have an account? <Link to='/login' className="font-semibold text-violet-600 hover:underline">Login here</Link></p>
                     </div>
                 </div>
             </div>
@@ -48,4 +48,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;
