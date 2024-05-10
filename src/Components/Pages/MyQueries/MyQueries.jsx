@@ -10,7 +10,7 @@ const MyQueries = () => {
                     <div className="max-w-md">
                         <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
                         <p className="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                        <Link to='/add-queries' className="px-8 border-2 py-3 text-xl font-inter">Add Quries</Link to='/add-queries'>
+                        <Link to='/add-queries' className="px-8 border-2 py-3 font-semibold font-inter text-xl">Add Quries</Link>
                     </div>
                 </div>
             </div>
