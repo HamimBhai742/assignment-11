@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import MyQueriesDetails from './MyQueriesDetails';
+import useAuth from '../../../hooks/useAuth';
 
 const MyQueries = () => {
     const loderQueries = useLoaderData()
-    const [myQueries, setMyQueries] = useState(loderQueries)
+    const { user } = useAuth()
+    const myQueriesData = loderQueries.filter(myQuery => myQuery.userEmail === user?.email)
+    const [myQueries, setMyQueries] = useState(myQueriesData)
+    // console.log(myQueriesData);
     console.log(myQueries);
     return (
         <div className='mx-5'>
