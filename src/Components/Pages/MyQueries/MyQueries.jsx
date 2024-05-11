@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import MyQueriesDetails from './MyQueriesDetails';
 
 const MyQueries = () => {
-    const myQueries = useLoaderData()
+    const loderQueries = useLoaderData()
+    const [myQueries, setMyQueries] = useState(loderQueries)
     console.log(myQueries);
     return (
         <div className='mx-5'>
@@ -20,7 +21,7 @@ const MyQueries = () => {
 
             <div className='grid grid-cols-3 gap-5 '>
                 {
-                    myQueries.map((myQuery, idx) => <MyQueriesDetails key={idx} myQuery={myQuery}></MyQueriesDetails>)
+                    myQueries.map((myQuery, idx) => <MyQueriesDetails key={idx} myQuery={myQuery} myQueries={myQueries} setMyQueries={setMyQueries}></MyQueriesDetails>)
                 }
             </div>
         </div>
