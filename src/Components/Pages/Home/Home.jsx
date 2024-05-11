@@ -1,4 +1,5 @@
 import Banner from "./Banner";
+import RecentQueries from "./RecentQueries";
 import Slider from "./Slider";
 
 const Home = () => {
@@ -6,6 +7,7 @@ const Home = () => {
         <div>
             <Slider></Slider>
             <Banner></Banner>
+            <RecentQueries></RecentQueries>
         </div>
     );
 };

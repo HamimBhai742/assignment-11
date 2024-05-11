@@ -5,6 +5,8 @@ import Login from "../Components/Pages/Login/Login";
 import Register from "../Components/Pages/Register/Register";
 import MyQueries from "../Components/Pages/MyQueries/MyQueries";
 import AddQueries from "../Components/Pages/AddQueries/AddQueries";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import ViewDetails from "../Components/Pages/ViewDetails/ViewDetails";
 
 const router = createBrowserRouter([
     {
@@ -25,12 +27,19 @@ const router = createBrowserRouter([
             },
             {
                 path: '/my-queries',
-                element: <MyQueries></MyQueries>
+                element: <PrivateRoute><MyQueries></MyQueries></PrivateRoute>,
+                loader: () => fetch('http://localhost:5000/my-queries')
             },
             {
                 path: '/add-queries',
-                element: <AddQueries></AddQueries>
+                element: <PrivateRoute><AddQueries></AddQueries></PrivateRoute>
             },
+            {
+                path: '/view-details/:id',
+                element: <ViewDetails></ViewDetails>,
+                loader:({params})=>fetch(`http://localhost:5000/my-queries/${params.id}`)
+
+            }
         ]
     },
 ]);

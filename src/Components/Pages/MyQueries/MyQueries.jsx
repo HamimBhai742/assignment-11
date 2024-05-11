@@ -1,7 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
+import MyQueriesDetails from './MyQueriesDetails';
 
 const MyQueries = () => {
+    const myQueries = useLoaderData()
+    console.log(myQueries);
     return (
         <div className='mx-5'>
             <div className="hero immggg1 my-5 h-[400px]">
@@ -13,6 +16,12 @@ const MyQueries = () => {
                         <Link to='/add-queries' className="px-8 border-2 py-3 font-semibold font-inter text-xl">Add Quries</Link>
                     </div>
                 </div>
+            </div>
+
+            <div className='grid grid-cols-3 gap-5 '>
+                {
+                    myQueries.map((myQuery, idx) => <MyQueriesDetails key={idx} myQuery={myQuery}></MyQueriesDetails>)
+                }
             </div>
         </div>
     );
