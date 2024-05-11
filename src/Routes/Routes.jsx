@@ -7,6 +7,7 @@ import MyQueries from "../Components/Pages/MyQueries/MyQueries";
 import AddQueries from "../Components/Pages/AddQueries/AddQueries";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import ViewDetails from "../Components/Pages/ViewDetails/ViewDetails";
+import UpdateMyQuries from "../Components/Pages/Update/UpdateMyQuries";
 
 const router = createBrowserRouter([
     {
@@ -37,8 +38,12 @@ const router = createBrowserRouter([
             {
                 path: '/view-details/:id',
                 element: <ViewDetails></ViewDetails>,
-                loader:({params})=>fetch(`http://localhost:5000/my-queries/${params.id}`)
-
+                loader: ({ params }) => fetch(`http://localhost:5000/my-queries/${params.id}`)
+            },
+            {
+                path: '/update-my-queries/:id',
+                element: <UpdateMyQuries></UpdateMyQuries>,
+                loader: ({ params }) => fetch(`http://localhost:5000/my-queries/${params.id}`)
             }
         ]
     },

@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import { useEffect } from "react";
 
@@ -7,9 +7,10 @@ const MyQueriesDetails = ({ myQuery }) => {
     const { userEmail, currentDateAndTime, userName, userPhoto, productImg, _id } = myQuery
     const navigate = useNavigate()
     const handelViewDetailsBtn = (id) => {
-        
+
         navigate(`/view-details/${id}`)
     }
+    
     return (
         <div>
             <div className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-50 dark:text-gray-800 border-2 font-poppins">
@@ -30,7 +31,7 @@ const MyQueriesDetails = ({ myQuery }) => {
                 </div>
                 <div className="flex flex-wrap justify-between">
                     <button onClick={() => handelViewDetailsBtn(_id)} className="btn btn-secondary">View Details</button>
-                    <button className="btn btn-success text-white">Update</button>
+                    <Link to={`/update-my-queries/${_id}`} className="btn btn-success text-white">Update</Link>
                     <button className="btn btn-error">Delete</button>
                 </div>
             </div>
