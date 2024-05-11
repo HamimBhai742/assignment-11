@@ -8,6 +8,8 @@ import AddQueries from "../Components/Pages/AddQueries/AddQueries";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import ViewDetails from "../Components/Pages/ViewDetails/ViewDetails";
 import UpdateMyQuries from "../Components/Pages/Update/UpdateMyQuries";
+import Queries from "../Components/Pages/Queries/Queries";
+import QueryDetails from "../Components/Pages/QueryDetails/QueryDetails";
 
 const router = createBrowserRouter([
     {
@@ -44,6 +46,16 @@ const router = createBrowserRouter([
                 path: '/update-my-queries/:id',
                 element: <UpdateMyQuries></UpdateMyQuries>,
                 loader: ({ params }) => fetch(`http://localhost:5000/my-queries/${params.id}`)
+            },
+            {
+                path: '/queries',
+                element: <Queries></Queries>,
+                loader: () => fetch('http://localhost:5000/queries')
+            },
+            {
+                path: '/query-details/:id',
+                element: <QueryDetails></QueryDetails>,
+                loader: ({ params }) => fetch(`http://localhost:5000/query-details/${params.id}`)
             }
         ]
     },

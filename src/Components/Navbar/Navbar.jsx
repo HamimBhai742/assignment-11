@@ -50,7 +50,7 @@ const Navbar = () => {
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 gap-5 text-base font-medium text-gray-600">
                     <NavLink to='/'>Home</NavLink>
-                    <NavLink to='/'>Queries</NavLink>
+                    <NavLink to='/queries'>Queries</NavLink>
                     {user && <NavLink to='/'>Recommendations For Me</NavLink>}
                     {user && <NavLink to='/my-queries'>My Queries</NavLink>}
                     {user && <NavLink to='/'>My recommendations</NavLink>}
