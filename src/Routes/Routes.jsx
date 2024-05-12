@@ -10,6 +10,7 @@ import ViewDetails from "../Components/Pages/ViewDetails/ViewDetails";
 import UpdateMyQuries from "../Components/Pages/Update/UpdateMyQuries";
 import Queries from "../Components/Pages/Queries/Queries";
 import QueryDetails from "../Components/Pages/QueryDetails/QueryDetails";
+import PerticularRecommendation from "../Components/Pages/Queries/PerticularRecommendation";
 
 const router = createBrowserRouter([
     {
@@ -56,7 +57,12 @@ const router = createBrowserRouter([
                 path: '/query-details/:id',
                 element: <QueryDetails></QueryDetails>,
                 loader: ({ params }) => fetch(`http://localhost:5000/query-details/${params.id}`)
-            }
+            },
+            {
+                path: '/perticular-recommend/:id',
+                element: <PerticularRecommendation></PerticularRecommendation>,
+                loader: ({params}) => fetch(`http://localhost:5000/recommendation/${params.id}`)
+            },
         ]
     },
 ]);

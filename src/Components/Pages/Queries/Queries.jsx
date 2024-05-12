@@ -6,7 +6,7 @@ const Queries = () => {
     const loderQueries = useLoaderData()
     console.log(loderQueries);
     return (
-        <div>
+        <div className='grid grid-cols-3 gap-5 mx-5 my-10'>
             {
                 loderQueries.map((query, idx) => <QueryCard key={idx} query={query}></QueryCard>)
             }

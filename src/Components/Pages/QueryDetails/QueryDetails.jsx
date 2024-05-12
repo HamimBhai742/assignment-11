@@ -1,39 +1,88 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
-
+import { useLoaderData, useParams } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Swal from 'sweetalert2';
 const QueryDetails = () => {
+    const { user } = useAuth()
+    const { id } = useParams()
+    // console.log(user);
     const lodaerQuery = useLoaderData()
-  
     const { productName, productImg, productBrand, queryTitel, recommendationCount, boycottingReason, userEmail, userName, userPhoto, _id, currentDateAndTime } = lodaerQuery
     console.log(lodaerQuery);
     // const dd = lodaerQuery.filter(p=>p._id===_id)
     // console.log(dd);
+
     let count = recommendationCount
-    const [recommedCount, setRecommedCount] = useState(recommendationCount)
+    // console.log(count);
+    const [recommendCount, setRecommedCount] = useState(count)
+    // const [rrCount, setRCount] = useState()
+    // const [datas, setData] = useState(rCount)
+
     const handelAddRecomend = (e) => {
         e.preventDefault()
-        const form=e.target
-        const reTitel=form.reTitel.value
-        const reProName=form.reProName.value
-        const reProImg=form.reProImg.value
-        const reReason=form.reReason.value
-        console.log(reProImg,reProName,reReason,reTitel);
+        const form = e.target
+        const recommendationTitel = form.reTitel.value
+        const recommendationProName = form.reProName.value
+        const recommendationProImg = form.reProImg.value
+        const recommendationReason = form.reReason.value
+        const currentTime = new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
+        const currentDate = new Date().toISOString().slice(0, 10).split('-').reverse().join('/')
+        const currentDateAndTime = currentDate + ' ' + currentTime
+        // console.log(reProImg, reProName, reReason, reTitel);
+        const recommendationAdd = {
+            recommendationProImg,
+            recommendationProName,
+            recommendationReason,
+            recommendationTitel,
+            queryId: _id,
+            productName,
+            queryTitel,
+            userName,
+            userEmail,
+            recommenderName: user.displayName,
+            recommenderEmail: user.email,
+            currentDateAndTime
+        }
+
+        console.log(recommendationAdd);
+
+        axios.post('http://localhost:5000/add-recommendation', recommendationAdd)
+            .then(res => {
+                console.log(res.data);
+            })
         count++
         axios.patch(`http://localhost:5000/query-details/${_id}`, { count })
             .then(res => {
                 console.log(res.data);
+                // fetch(`http://localhost:5000/query-details/${id}`)
+                //     .then((res) => res.json())
+                //     .then(data => {
+                //         // const {recommendationCount}=data
+                //         setRCount(data)
+                //         setData(datas);
+
+                //     })
+                // setRecommedCount(recommendationCount)
                 if (res.data.modifiedCount > 0) {
+                    console.log('click');
                     setRecommedCount(recommendationCount)
+                    toast.success('Recommend Add Successfully')
+                    setTimeout(() => {
+                        window.location.reload()
+                    }, 1000)
+
                 }
             })
-        console.log(count);
+        // console.log(count);
 
     }
     return (
-        <section className="bg-white dark:bg-gray-900 rounded-lg shadow-md border-2 mx-5">
-            <div className="flex justify-center min-h-screen">
-                <div className="flex flex-col w-[450px] p-6 space-y-6 overflow-hidden  dark:bg-gray-50 dark:text-gray-800  font-lato">
+        <section className="bg-white dark:bg-gray-900 max-w-[1170px] mx-auto my-8">
+            <div className="flex gap-5">
+                <div className="flex flex-col w-[470px] p-6 space-y-6 overflow-hidden rounded-lg shadow-md bg-violet-100  dark:bg-gray-50 dark:text-gray-800  font-lato">
                     <div className='flex justify-between'>
                         <div className="flex space-x-4">
                             <img alt="" src={userPhoto} className="object-cover w-12 h-12 rounded-full shadow dark:bg-gray-500" />
@@ -50,7 +99,7 @@ const QueryDetails = () => {
                         <h2 className="mb-1 text-xl font-semibold">Isrial Products Hints</h2>
                         <p>Cocacola is dengriou for our health</p>
                         <p>This Product is isrial product</p>
-                        <p>Recommendation Count: {recommedCount}</p>
+                        <p>Recommendation Count: {recommendCount}</p>
                     </div>
                     {/* <div className="flex flex-wrap justify-between">
                         <button onClick={() => handelViewDetailsBtn(_id)} className="btn btn-secondary">View Details</button>
@@ -59,10 +108,10 @@ const QueryDetails = () => {
                     </div> */}
                 </div>
 
-                <div className="flex items-center w-full max-w-3xl p-8 mx-auto lg:px-12 lg:w-3/5 font-lato">
+                <div className="flex items-center w-full max-w-3xl p-8 mx-auto lg:px-12 lg:w-3/5 font-lato rounded-lg shadow-md bg-violet-100">
                     <div className="w-full">
-                        <h1 className="text-2xl font-semibold tracking-wider text-gray-800 capitalize dark:text-white">
-                            Get your free account now.
+                        <h1 className="text-2xl font-palyfair font-semibold tracking-wider text-gray-800 capitalize dark:text-white">
+                            Get your recommend now.
                         </h1>
 
                         <div className="mt-6">
@@ -89,14 +138,15 @@ const QueryDetails = () => {
                                 <div className='w-full'>
                                     {/* <input type="submit" value="Add" id="" className='w-1/2 btn btn-secondary  grid grid-cols-1' /> */}
                                 </div>
-                                <div className='w-full flex justify-end'>
-                                    <input type="submit" value="Add" id="" className='w-1/2 btn btn-secondary  grid grid-cols-1' />
+                                <div className='w-full flex justify-end font-inter'>
+                                    <input type="submit" value="Add Recommendation" id="" className='w-full btn btn-secondary  text-xl font-semibold' />
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
+            <ToastContainer></ToastContainer>
         </section>
     );
 };

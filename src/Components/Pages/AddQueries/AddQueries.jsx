@@ -18,7 +18,7 @@ const AddQueries = () => {
         const recommendationCount = 0
         const currentTime = new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
         const currentDate = new Date().toISOString().slice(0, 10).split('-').reverse().join('/')
-        const currentDateAndTime = currentDate + ' ' + currentTime
+        const currentDateAndTime = currentDate + " " + " " + " " + currentTime
         console.log(currentDateAndTime);
         const addQueries = { productImg, productBrand, productName, queryTitel, boycottingReason, userName, userEmail, userPhoto, currentDateAndTime, recommendationCount }
         axios.post('http://localhost:5000/add-queries', addQueries)
