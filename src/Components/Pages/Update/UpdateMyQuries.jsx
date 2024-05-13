@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const UpdateMyQuries = () => {
     const queries = useLoaderData()
@@ -18,7 +19,15 @@ const UpdateMyQuries = () => {
         console.log(myQueries);
         axios.put(`http://localhost:5000/my-queries/update/${_id}`, myQueries)
             .then(res => {
-                console.log(res.data);
+                console.log(res.data.modifiedCount);
+                if (res.data.modifiedCount > 0) {
+                    Swal.fire({
+                        title: "Success!",
+                        text: "Your Queries Update Successfully!",
+                        icon: "success"
+                    });
+                }
+
             })
     }
     return (
@@ -61,7 +70,7 @@ const UpdateMyQuries = () => {
                                 <textarea defaultValue={boycottingReason} id="description" name="boycottingReason" rows="4" cols="50" className="w-full mt-2 pt-1   pl-3 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300"></textarea>
                             </div>
                             <div className="col-span-full mt-3">
-                                <input id="address" type="submit" value="Add Query" className="w-full text-2xl hover:bg-amber-600 font-rachno h-12 btn text-yellow-950 bg-amber-500" />
+                                <input id="address" type="submit" value="Update Query" className="w-full text-2xl hover:bg-amber-600 font-rachno h-12 btn text-yellow-950 bg-amber-500" />
                             </div>
                         </div>
                     </fieldset>

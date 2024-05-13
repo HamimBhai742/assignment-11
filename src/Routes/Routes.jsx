@@ -12,6 +12,7 @@ import Queries from "../Components/Pages/Queries/Queries";
 import QueryDetails from "../Components/Pages/QueryDetails/QueryDetails";
 import PerticularRecommendation from "../Components/Pages/Queries/PerticularRecommendation";
 import MyRecommendation from "../Components/Pages/MyRecommendation/MyRecommendation";
+import RecoForMe from "../Components/Pages/RecommendationForMe/RecoForMe";
 
 const router = createBrowserRouter([
     {
@@ -66,8 +67,13 @@ const router = createBrowserRouter([
             },
             {
                 path: '/my-recommendation',
-                element: <MyRecommendation></MyRecommendation>,
-                loader: () => fetch('http://localhost:5000/queries')
+                element: <PrivateRoute><MyRecommendation></MyRecommendation></PrivateRoute>,
+                // loader: () => fetch('http://localhost:5000/queries')
+            },
+            {
+                path: '/recommendation-for-me',
+                element: <PrivateRoute><RecoForMe></RecoForMe></PrivateRoute>,
+                loader: () => fetch('http://localhost:5000/recommendation')
             }
         ]
     },

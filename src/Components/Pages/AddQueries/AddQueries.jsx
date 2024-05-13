@@ -1,6 +1,7 @@
 import React from 'react';
 import useAuth from '../../../hooks/useAuth';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const AddQueries = () => {
     const { user } = useAuth()
@@ -24,6 +25,12 @@ const AddQueries = () => {
         axios.post('http://localhost:5000/add-queries', addQueries)
             .then(res => {
                 console.log(res.data);
+                Swal.fire({
+                    title: "Success!",
+                    text: "Your Queries Add Successfully!",
+                    icon: "success"
+                });
+                form.reset()
             })
         console.log(addQueries);
     }

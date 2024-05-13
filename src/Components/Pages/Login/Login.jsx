@@ -2,10 +2,15 @@ import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import Swal from 'sweetalert2'
-
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { useState } from "react";
 
 const Login = () => {
     const { logInUserAccount, loginWithGoogle } = useAuth()
+    const [showPassword, setShowPassword] = useState(false)
+    const showPasswordBtn = () => {
+        setShowPassword(!showPassword)
+    }
     const navigate = useNavigate()
     const handelLoginBtn = (e) => {
         e.preventDefault()
@@ -36,6 +41,12 @@ const Login = () => {
         loginWithGoogle()
             .then(result => {
                 console.log(result.user);
+                Swal.fire({
+                    title: "Success!",
+                    text: "Your account successfully login!",
+                    icon: "success"
+                });
+                navigate('/')
             })
             .catch(error => {
                 console.log(error);
@@ -56,11 +67,12 @@ const Login = () => {
                             </label>
                             <input type="email" name="email" placeholder="Enter your email" className="input input-bordered" required />
                         </div>
-                        <div className="form-control">
+                        <div className="form-control relative">
                             <label className="label">
                                 <span className="label-text font-semibold">Password <span className='text-red-600 text-lg'>*</span></span>
                             </label>
-                            <input type="password" name="password" placeholder="Enter your password" className="input input-bordered" required />
+                            <input name='password' type={showPassword ? 'text' : 'password'} placeholder="Enter your password" className="input input-bordered" required />
+                            <span className='absolute right-4 top-14 text-xl' onClick={showPasswordBtn}>{showPassword ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>}</span>
                             <label className="label">
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>

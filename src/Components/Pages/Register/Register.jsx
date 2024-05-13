@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import { updateProfile } from 'firebase/auth';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import Swal from 'sweetalert2';
 
 const Register = () => {
     const { createUserAccout, user } = useAuth()
     const [error, setError] = useState('')
     const [showPassword, setShowPassword] = useState(false)
+    const navigate=useNavigate()
     // console.log(createAccout);
     console.log(user);
     const showPasswordBtn = () => {
@@ -35,7 +37,13 @@ const Register = () => {
                 updateProfile(result.user, {
                     displayName: name, photoURL: photo
                 })
+                Swal.fire({
+                    title: "Success!",
+                    text: "Your account successfully register!",
+                    icon: "success"
+                });
                 form.reset()
+                navigate('/')
             })
             .catch(error => {
                 console.log(error);
