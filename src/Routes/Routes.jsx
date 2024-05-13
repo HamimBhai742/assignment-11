@@ -11,6 +11,7 @@ import UpdateMyQuries from "../Components/Pages/Update/UpdateMyQuries";
 import Queries from "../Components/Pages/Queries/Queries";
 import QueryDetails from "../Components/Pages/QueryDetails/QueryDetails";
 import PerticularRecommendation from "../Components/Pages/Queries/PerticularRecommendation";
+import MyRecommendation from "../Components/Pages/MyRecommendation/MyRecommendation";
 
 const router = createBrowserRouter([
     {
@@ -61,8 +62,13 @@ const router = createBrowserRouter([
             {
                 path: '/perticular-recommend/:id',
                 element: <PerticularRecommendation></PerticularRecommendation>,
-                loader: ({params}) => fetch(`http://localhost:5000/recommendation/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/recommendation/perticular/${params.id}`)
             },
+            {
+                path: '/my-recommendation',
+                element: <MyRecommendation></MyRecommendation>,
+                loader: () => fetch('http://localhost:5000/queries')
+            }
         ]
     },
 ]);

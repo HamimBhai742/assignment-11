@@ -42,8 +42,10 @@ const QueryDetails = () => {
             queryTitel,
             userName,
             userEmail,
+            userPhoto,
             recommenderName: user.displayName,
             recommenderEmail: user.email,
+            recommenderPhoto: user.photoURL,
             currentDateAndTime
         }
 

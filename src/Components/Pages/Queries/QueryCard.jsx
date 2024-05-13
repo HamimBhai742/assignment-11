@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaRegComment, FaRegCommentAlt } from "react-icons/fa";
+import useAuth from '../../../hooks/useAuth';
 
 const QueryCard = ({ query }) => {
-    const { userPhoto, _id, productImg, recommendationCount, productBrand, currentDateAndTime, boycottingReason, productName, userName, queryTitel } = query
+    const { user } = useAuth()
+    const { userPhoto, _id, productImg, recommendationCount, productBrand, currentDateAndTime, boycottingReason, productName, userName, queryTitel, userEmail } = query
     // useEffect(() => {
     //     fetch('http://localhost:5000/recommendation')
     //         .then(res => res.json())
@@ -11,6 +13,10 @@ const QueryCard = ({ query }) => {
     //             console.log(data);
     //         })
     // }, [])
+    const navigate = useNavigate()
+    const handelRecommendBtn = () => {
+        navigate(`/query-details/${_id}`)
+    }
     return (
         <div>
             <div className="max-w-2xl overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800 font-lato">
@@ -39,9 +45,9 @@ const QueryCard = ({ query }) => {
 
                         </div>
                         <div className='relative'>
-                            <Link to={`/query-details/${_id}`} className='btn btn-accent'>Recommend</Link>
+                            <button onClick={handelRecommendBtn} disabled={user?.email === userEmail} className='btn btn-accent'>Recommend</button>
                             {/* <span className='text-xl absolute top-[2px]'><FaRegCommentAlt /></span> */}
-                            <Link  className='text-3xl absolute left-[120px]'><FaRegComment></FaRegComment></Link> 
+                            <Link to={`/perticular-recommend/${_id}`} className='text-3xl absolute left-[120px]'><FaRegComment></FaRegComment></Link>
                             <Link to={`/perticular-recommend/${_id}`} className='absolute left-[128px] text-sm top-1'>{recommendationCount}</Link>
                             {/* You can open the modal using document.getElementById('ID').showModal() method */}
                             {/* <button className="" onClick={() => document.getElementById('my_modal_3').showModal()}><FaRegComment></FaRegComment></button>

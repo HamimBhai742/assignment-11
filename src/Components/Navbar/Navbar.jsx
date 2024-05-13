@@ -71,7 +71,7 @@ const Navbar = () => {
                     <NavLink to='/queries'>Queries</NavLink>
                     {user && <NavLink to='/'>Recommendations For Me</NavLink>}
                     {user && <NavLink to='/my-queries'>My Queries</NavLink>}
-                    {user && <NavLink to='/'>My recommendations</NavLink>}
+                    {user && <NavLink to='/my-recommendation'>My recommendations</NavLink>}
                 </ul>
             </div>
             <div className="navbar-end gap-3">
