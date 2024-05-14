@@ -51,15 +51,15 @@ const QueryDetails = () => {
 
         console.log(recommendationAdd);
 
-        axios.post('http://localhost:5000/add-recommendation', recommendationAdd)
+        axios.post('https://assignment-11-server-liard-five.vercel.app/add-recommendation', recommendationAdd)
             .then(res => {
                 console.log(res.data);
             })
         count++
-        axios.patch(`http://localhost:5000/query-details/${_id}`, { count })
+        axios.patch(`https://assignment-11-server-liard-five.vercel.app/query-details/${_id}`, { count })
             .then(res => {
                 console.log(res.data);
-                // fetch(`http://localhost:5000/query-details/${id}`)
+                // fetch(`https://assignment-11-server-liard-five.vercel.app/query-details/${id}`)
                 //     .then((res) => res.json())
                 //     .then(data => {
                 //         // const {recommendationCount}=data
@@ -82,18 +82,18 @@ const QueryDetails = () => {
 
     }
     return (
-        <section className="bg-white dark:bg-gray-900 max-w-[1170px] mx-auto my-8 mt-28">
-            <div className="flex gap-5">
-                <div className="flex flex-col w-[470px] p-6 space-y-6 overflow-hidden rounded-lg shadow-md bg-violet-100  dark:bg-gray-50 dark:text-gray-800  font-lato">
+        <section className="bg-white dark:bg-gray-900 max-w-[1170px] md:mx-auto my-8 md:mt-28 mx-3 mt-20">
+            <div className="flex gap-5 max-sm:flex-col">
+                <div className="flex flex-col w-full md:w-[470px] p-6 space-y-6 overflow-hidden rounded-lg shadow-md bg-violet-100  dark:bg-gray-50 dark:text-gray-800  font-lato">
                     <div className='flex justify-between'>
-                        <div className="flex space-x-4">
-                            <img alt="" src={userPhoto} className="object-cover w-12 h-12 rounded-full shadow dark:bg-gray-500" />
+                        <div className="flex md:space-x-4 space-x-2">
+                            <img alt="" src={userPhoto} className="object-cover md:w-12 w-10 h-10 md:h-12 rounded-full shadow dark:bg-gray-500" />
                             <div className="flex flex-col space-y-1">
-                                <a rel="noopener noreferrer" href="#" className="text-sm font-semibold">{userName}</a>
+                                <a rel="noopener noreferrer" href="#" className="md:text-sm text-xs md:font-semibold">{userName}</a>
                                 <span className="text-xs dark:text-gray-600">{userEmail}</span>
                             </div>
                         </div>
-                        <p className='text-sm'><span className='font-semibold'>Post:</span> {currentDateAndTime}</p>
+                        <p className='md:text-sm text-xs max-sm:-ml-8'><span className='font-semibold'>Post:</span> {currentDateAndTime}</p>
                     </div>
                     <div>
                         <img src={productImg} alt="" className="object-cover w-full mb-4 rounded-lg h-60  dark:bg-gray-500" />

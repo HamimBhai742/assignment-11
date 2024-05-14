@@ -12,10 +12,9 @@ const PerticularRecommendation = () => {
     return (
         <div className='mt-28'>
             {lodRecommend.length === 0 &&
-                <div>
-                    <p className='relative min-h-screen flex justify-center items-center text-5xl font-bold font-poppins'>No Recommend Data Found</p>
-
-                    <Link to='/queries' className='absolute top-96 left-[600px] btn btn-accent font-lato'>Back To Queries</Link>
+                <div className='flex flex-col gap-8 justify-center items-center min-h-screen'>
+                    <p className=' text-5xl font-bold font-poppins'>No Recommend Data Found</p>
+                    <Link to='/queries' className='btn btn-accent font-lato'>Back To Queries</Link>
                 </div>
 
             }

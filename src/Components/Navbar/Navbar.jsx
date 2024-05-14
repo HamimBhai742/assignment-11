@@ -49,20 +49,20 @@ const Navbar = () => {
         <div className="navbar bg-base-100 font-inter px-5 fixed shadow-md z-50 top-0">
             <div className="navbar-start">
                 <div className="dropdown">
-                    <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+                    <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden -ml-5">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </div>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                         <NavLink to='/'>Home</NavLink>
-                        <NavLink to='/'>Queries</NavLink>
-                        <NavLink to='/'>Home</NavLink>
-                        <NavLink to='/my-queries'>My Queries</NavLink>
-                        <NavLink to='/'>Home</NavLink>
+                        <NavLink to='/queries'>Queries</NavLink>
+                        {user && <NavLink to='/recommendation-for-me'>Recommendations For Me</NavLink>}
+                        {user && <NavLink to='/my-queries'>My Queries</NavLink>}
+                        {user && <NavLink to='/my-recommendation'>My recommendations</NavLink>}
                     </ul>
                 </div>
                 <div className='flex items-center'>
-                    <img src="/web-logo.png" className='w-12' alt="" />
-                    <a className="btn btn-ghost text-3xl font-bold font-palyfair">Goods Galaxy</a>
+                    <img src="/web-logo.png" className='md:w-12 md:h-12 max-sm:hidden' alt="" />
+                    <a className="btn btn-ghost text-xl md:text-3xl font-bold font-palyfair max-sm:-ml-4">Goods Galaxy</a>
                 </div>
             </div>
             <div className="navbar-center hidden lg:flex">
@@ -112,7 +112,7 @@ const Navbar = () => {
                         <path d='M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z'></path>
                     </svg>
                 </label>
-                {user && <div className=" w-16 h-16 rounded-full">
+                {user && <div className=" w-16 h-16 rounded-full max-sm:hidden">
                     <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
                         <button className="w-16 rounded-full"><img className=' w-16 h-16 rounded-full' src={user?.photoURL} /></button>
                     </div>
@@ -120,7 +120,7 @@ const Navbar = () => {
                 {/* <div className="tooltip tooltip-left" data-tip="hello">
                     <button className="w-16 rounded-full"><img className='w-16 h-16 rounded-full' src={user?.photoURL} /></button>
                 </div> */}
-                {user ? <button onClick={handelLogoutBtn} className='bg-teal-600 p-3 rounded-lg text-white text-lg font-semibold'>Logout</button> : <Link to='/login' className='bg-purple-600 p-3 rounded-lg text-white text-lg font-semibold'>Login</Link>}
+                {user ? <button onClick={handelLogoutBtn} className='bg-teal-600 p-3 rounded-lg text-white md:text-lg md:font-semibold'>Logout</button> : <Link to='/login' className='bg-purple-600 p-3 rounded-lg text-white md:text-lg md:font-semibold'>Login</Link>}
             </div>
         </div>
     );

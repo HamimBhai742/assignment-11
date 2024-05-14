@@ -25,7 +25,7 @@ const MyRecommendation = () => {
     // console.log(user?.displayName);
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/recommendation/${user?.email}`)
+        axios.get(`https://assignment-11-server-liard-five.vercel.app/recommendation/${user?.email}`)
             .then(res => {
                 setRecommed(res.data);
                 // res.data.forEach(rq => setRecomandId(rq._id))
@@ -36,7 +36,7 @@ const MyRecommendation = () => {
 
     // if (recommendId) {
     //     // useEffect(() => {
-    //         fetch(`http://localhost:5000/my-recommendation/${recommendId}`)
+    //         fetch(`https://assignment-11-server-liard-five.vercel.app/my-recommendation/${recommendId}`)
     //             .then(res => res.json())
     //             .then(data => {
     //                 const { queryId } = data
@@ -47,7 +47,7 @@ const MyRecommendation = () => {
     // }
 
     if (querryId) {
-        fetch(`http://localhost:5000/queries/${querryId}`)
+        fetch(`https://assignment-11-server-liard-five.vercel.app/queries/${querryId}`)
             .then(res => res.json())
             .then(datas => {
                 // console.log(datas);
@@ -72,7 +72,7 @@ const MyRecommendation = () => {
 
 
     if (click && newCount >= 0) {
-        axios.patch(`http://localhost:5000/queries/${querryId}`, { newCount })
+        axios.patch(`https://assignment-11-server-liard-five.vercel.app/queries/${querryId}`, { newCount })
             .then(res => {
                 console.log(res.data);
                 setClick(false)
@@ -87,7 +87,7 @@ const MyRecommendation = () => {
         // console.log(decCount);
         console.log('rrrrrrrrrr', recommendCount);
         // setClick(true)
-        fetch(`http://localhost:5000/my-recommendation/${id}`)
+        fetch(`https://assignment-11-server-liard-five.vercel.app/my-recommendation/${id}`)
             .then(res => res.json())
             .then(data => {
                 const { queryId } = data
@@ -103,7 +103,7 @@ const MyRecommendation = () => {
 
         // console.log(querryId);
 
-        // fetch(`http://localhost:5000/queries/${querryId}`)
+        // fetch(`https://assignment-11-server-liard-five.vercel.app/queries/${querryId}`)
         //     .then(res => res.json())
         //     .then(datas => {
         //         console.log(datas);
@@ -129,7 +129,7 @@ const MyRecommendation = () => {
                     icon: "success"
                 });
 
-                axios.delete(`http://localhost:5000/my-recommendation/${id}`)
+                axios.delete(`https://assignment-11-server-liard-five.vercel.app/my-recommendation/${id}`)
                     .then(res => {
                         // console.log(res.data);
                         const newMyRecommendation = recommend.filter(rec => rec._id !== id)
@@ -138,7 +138,7 @@ const MyRecommendation = () => {
 
                     })
 
-                // fetch(`http://localhost:5000/my-recommendation/${id}`)
+                // fetch(`https://assignment-11-server-liard-five.vercel.app/my-recommendation/${id}`)
                 //     .then(res => res.json())
                 //     .then(data => {
                 //         const { queryId } = data
@@ -156,7 +156,7 @@ const MyRecommendation = () => {
 
     }
     return (
-        <div className='mx-5 mt-24'>
+        <div className='md:mx-5 md:mt-24 mt-20 mx-3'>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
@@ -189,19 +189,19 @@ const MyRecommendation = () => {
                                     </div>
                                 </td>
                                 <td>
-                                    <p className='font-semibold'>{reco.currentDateAndTime}</p>
+                                    <p className='font-semibold max-sm:text-xs'>{reco.currentDateAndTime}</p>
                                 </td>
                                 <td>
-                                    <p className='font-semibold'>{reco.recommendationProName}</p>
+                                    <p className='font-semibold max-sm:text-xs'>{reco.recommendationProName}</p>
                                 </td>
                                 <td>
-                                    <p className='font-semibold'>{reco.recommendationReason}</p>
+                                    <p className='font-semibold max-sm:text-xs'>{reco.recommendationReason}</p>
                                 </td>
                                 <td>
-                                    <p className='font-semibold'>{reco.recommendationTitel}</p>
+                                    <p className='font-semibold max-sm:text-xs'>{reco.recommendationTitel}</p>
                                 </td>
                                 <th>
-                                    <button onClick={() => handelMyRecommendDeleteBtn(reco._id)} className="text-2xl"><RiDeleteBin6Line></RiDeleteBin6Line></button>
+                                    <button onClick={() => handelMyRecommendDeleteBtn(reco._id)} className="md:text-2xl text-xl"><RiDeleteBin6Line></RiDeleteBin6Line></button>
                                 </th>
                             </tr>)
                         }

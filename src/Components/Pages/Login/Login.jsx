@@ -55,7 +55,7 @@ const Login = () => {
             })
     }
     return (
-        <div className="hero min-h-screen bg-base-200 font-poppins">
+        <div className="hero min-h-screen bg-base-200 font-poppins mt-28">
             <div className="hero-content">
                 <div className="card  w-full lg:w-[650px] bg-base-100">
                     <div className="text-center pt-3">

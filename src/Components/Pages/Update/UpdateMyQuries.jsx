@@ -17,7 +17,7 @@ const UpdateMyQuries = () => {
         const boycottingReason = form.boycottingReason.value
         const myQueries = { productBrand, productImg, productName, queryTitel, boycottingReason }
         console.log(myQueries);
-        axios.put(`http://localhost:5000/my-queries/update/${_id}`, myQueries)
+        axios.put(`https://assignment-11-server-liard-five.vercel.app/my-queries/update/${_id}`, myQueries)
             .then(res => {
                 console.log(res.data.modifiedCount);
                 if (res.data.modifiedCount > 0) {
@@ -31,7 +31,7 @@ const UpdateMyQuries = () => {
             })
     }
     return (
-        <section className='max-w-[1170px] lg:mx-auto  my-8 max-sm:mx-3 md:mx-5 mt-28'>
+        <section className='max-w-[1170px] lg:mx-auto  my-8 mx-3 md:mx-5 md:mt-28 mt-20'>
             {/* <Helmet>
             <title>Add Queries</title>
         </Helmet> */}
@@ -44,19 +44,19 @@ const UpdateMyQuries = () => {
                         </div>
                         <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3 mt-10 font-raleway">
                             <div className="col-span-full sm:col-span-3">
-                                <label htmlFor="firstname" className="text-xl font-semibold">Product Name</label>
+                                <label htmlFor="firstname" className="md:text-xl font-semibold">Product Name</label>
                                 <input id="firstname" type="text" defaultValue={productName} className="w-full pl-3 h-12 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300" name='productName' />
                             </div>
                             <div className="col-span-full sm:col-span-3">
-                                <label htmlFor="lastname" className="text-xl font-semibold">Product Brand</label>
+                                <label htmlFor="lastname" className="md:text-xl font-semibold">Product Brand</label>
                                 <input id="lastname" type="text" defaultValue={productBrand} className="w-full pl-3 h-12  rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300" name='productBrand' />
                             </div>
                             <div className="col-span-full sm:col-span-3">
-                                <label htmlFor="firstname" className="text-xl font-semibold">Product Image-URL</label>
+                                <label htmlFor="firstname" className="md:text-xl font-semibold">Product Image-URL</label>
                                 <input id="firstname" type="url" defaultValue={productImg} className="w-full pl-3 h-12  rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300" name='productImg' />
                             </div>
                             <div className="col-span-full sm:col-span-3">
-                                <label htmlFor="lastname" className="text-xl font-semibold">Query Title</label>
+                                <label htmlFor="lastname" className="md:text-xl font-semibold">Query Title</label>
                                 <input id="lastname" type="text" defaultValue={queryTitel} className="w-full pl-3 h-12  rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300" name='queryTitel' />
                             </div>
                             {/* <div className="col-span-full">
@@ -65,12 +65,12 @@ const UpdateMyQuries = () => {
                     </div> */}
 
                             <div className="col-span-full">
-                                <label htmlFor="address" className="text-xl font-semibold">Boycotting Reason Details</label>
+                                <label htmlFor="address" className="md:text-xl font-semibold">Boycotting Reason Details</label>
                                 {/* <input id="address" type="url" placeholder="Enter photo URL" className="w-full h-12  pl-3 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300" defaultValue={loderCraft?.photo} name='photo' /> */}
                                 <textarea defaultValue={boycottingReason} id="description" name="boycottingReason" rows="4" cols="50" className="w-full mt-2 pt-1   pl-3 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300"></textarea>
                             </div>
                             <div className="col-span-full mt-3">
-                                <input id="address" type="submit" value="Update Query" className="w-full text-2xl hover:bg-amber-600 font-rachno h-12 btn text-yellow-950 bg-amber-500" />
+                                <input id="address" type="submit" value="Update Query" className="w-full md:text-2xl hover:bg-amber-600 font-rachno h-12 btn text-yellow-950 bg-amber-500 text-lg" />
                             </div>
                         </div>
                     </fieldset>

@@ -20,13 +20,13 @@ import { Navigation } from 'swiper/modules';
 const Slider = () => {
     return (
         <div className=''>
-            <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-                <SwiperSlide><img className='w-full h-[550px]' src={img1} alt="" /></SwiperSlide>
-                <SwiperSlide><img className='w-full h-[550px]' src={img2} alt="" /></SwiperSlide>
-                <SwiperSlide><img className='w-full h-[550px]' src={img} alt="" /></SwiperSlide>
-                <SwiperSlide><img className='w-full h-[550px]' src={img3} alt="" /></SwiperSlide>
-                <SwiperSlide><img className='w-full h-[550px]' src={img4} alt="" /></SwiperSlide>
-                <SwiperSlide><img className='w-full h-[550px]' src={img5} alt="" /></SwiperSlide>
+            <Swiper navigation={true} modules={[Navigation]} className="mySwiper rounded-xl">
+                <SwiperSlide><img className='w-full h-[350px] md:h-[550px]' src={img1} alt="" /></SwiperSlide>
+                <SwiperSlide><img className='w-full h-[350px] md:h-[550px]' src={img2} alt="" /></SwiperSlide>
+                <SwiperSlide><img className='w-full h-[350px] md:h-[550px]' src={img} alt="" /></SwiperSlide>
+                <SwiperSlide><img className='w-full h-[350px] md:h-[550px]' src={img3} alt="" /></SwiperSlide>
+                <SwiperSlide><img className='w-full h-[350px] md:h-[550px]' src={img4} alt="" /></SwiperSlide>
+                <SwiperSlide><img className='w-full h-[350px] md:h-[550px]' src={img5} alt="" /></SwiperSlide>
             </Swiper>
         </div>
     );

@@ -22,7 +22,7 @@ const AddQueries = () => {
         const currentDateAndTime = currentDate + " " + " " + " " + currentTime
         console.log(currentDateAndTime);
         const addQueries = { productImg, productBrand, productName, queryTitel, boycottingReason, userName, userEmail, userPhoto, currentDateAndTime, recommendationCount }
-        axios.post('http://localhost:5000/add-queries', addQueries)
+        axios.post('https://assignment-11-server-liard-five.vercel.app/add-queries', addQueries)
             .then(res => {
                 console.log(res.data);
                 Swal.fire({

@@ -2,12 +2,14 @@ import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaRegComment, FaRegCommentAlt } from "react-icons/fa";
 import useAuth from '../../../hooks/useAuth';
+import AOS from 'aos';
+import 'aos/dist/aos.css'
 
 const QueryCard = ({ query }) => {
     const { user } = useAuth()
     const { userPhoto, _id, productImg, recommendationCount, productBrand, currentDateAndTime, boycottingReason, productName, userName, queryTitel, userEmail } = query
     // useEffect(() => {
-    //     fetch('http://localhost:5000/recommendation')
+    //     fetch('https://assignment-11-server-liard-five.vercel.app/recommendation')
     //         .then(res => res.json())
     //         .then(data => {
     //             console.log(data);
@@ -17,22 +19,29 @@ const QueryCard = ({ query }) => {
     const handelRecommendBtn = () => {
         navigate(`/query-details/${_id}`)
     }
+    useEffect(() => {
+        AOS.init({
+            disable:'mobile',
+            duration:1000,
+            offset:120
+        });
+    }, [])
     return (
-        <div>
-            <div className="max-w-2xl overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800 font-lato">
+        <div className='mt-5'>
+            <div data-aos="fade-up" className="max-w-2xl overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800 font-lato">
                 <img className="object-cover w-full h-64" src={productImg} alt="Article" />
 
                 <div className="p-6">
                     <div>
-                        <span className="text-xl font-bold text-blue-600">{productName}</span>
-                        <p>{productBrand}</p>
-                        <a href="#" className="block mt-2 text-xl font-semibold text-gray-800 transition-colors duration-300 transform dark:text-white hover:text-gray-600 hover:underline" role="link">{queryTitel}</a>
-                        <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">{boycottingReason}</p>
+                        <span data-aos="fade-up-left" className="text-xl font-bold text-blue-600">{productName}</span>
+                        <p data-aos="fade-up-right">{productBrand}</p>
+                        <a data-aos="fade-down-right" href="#" className="block mt-2 text-xl font-semibold text-gray-800 transition-colors duration-300 transform dark:text-white hover:text-gray-600 hover:underline" role="link">{queryTitel}</a>
+                        <p data-aos="fade-down-left" className="mt-2 text-sm text-gray-600 dark:text-gray-400">{boycottingReason}</p>
                     </div>
-                    <div>
+                    <div data-aos="fade-up">
                         <p>Recommendation Count:  {recommendationCount}</p>
                     </div>
-                    <div className="mt-4 flex gap-8 items-center">
+                    <div className="mt-4 flex gap-8 items-center" data-aos="fade-up-right">
                         <div className="flex items-center">
                             <div className="flex items-center">
                                 <img className="object-cover h-12 w-12 rounded-full" src={userPhoto} alt="Avatar" />

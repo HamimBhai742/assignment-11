@@ -23,7 +23,7 @@ const Queries = () => {
 
     }
     return (
-        <div className='mx-5 mt-28'>
+        <div className='md:mx-5 mx-3 mt-28'>
             <div className=' flex justify-around mb-5'>
 
                 <label className="input input-bordered flex items-center gap-2">
@@ -33,7 +33,7 @@ const Queries = () => {
                     {/* <input xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-6 h-6 opacity-70 hover:cursor-pointer"><path fillRule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clipRule="evenodd" /></svg> */}
                 </label>
 
-                <div className='flex gap-3 items-center'>
+                <div className='flex gap-3 items-center max-sm:hidden'>
                     <h4 className='font-lato font-semibold'>Change Layout</h4>
                     {/* <input type="checkbox"  className="toggle theme-controller" /> */}
                     <label className="flex cursor-pointer gap-3 items-center">
@@ -43,7 +43,7 @@ const Queries = () => {
                     </label>
                 </div>
             </div>
-            <div className={layout ? 'grid grid-cols-2 gap-8' : 'grid grid-cols-3 gap-5'} >
+            <div className={layout ? 'grid grid-cols-2 gap-8' : 'grid md:grid-cols-3 gap-5 grid-cols-1'} >
                 {
                     queriesData.map((query, idx) => <QueryCard key={idx} query={query}></QueryCard>)
                 }

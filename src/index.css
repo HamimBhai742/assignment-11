@@ -30,3 +30,38 @@
     background-size: cover;
 
 }
+
+.someProImg {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    -webkit-transform: scale(1);
+    gap: 8px;
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+
+/* .bb:hover{
+    transform: scale(1.3);
+	transform: scale(1.3);
+} */
+.someProImg :hover {
+    transform: scale(1.1);
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+
+@media only screen and (max-width: 576px) {
+    .someProImg {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        -webkit-transform: scale(1);
+        gap: 8px;
+        transform: scale(1);
+        -webkit-transition: .3s ease-in-out;
+        transition: .3s ease-in-out;
+    }
+}

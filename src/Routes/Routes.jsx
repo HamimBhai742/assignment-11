@@ -18,11 +18,12 @@ const router = createBrowserRouter([
     {
         path: "/",
         element: <Root></Root>,
-        errorElement:<Error></Error>,
+        errorElement: <Error></Error>,
         children: [
             {
                 path: '/',
-                element: <Home></Home>
+                element: <Home></Home>,
+                loader: () => fetch('https://assignment-11-server-liard-five.vercel.app/queries')
             },
             {
                 path: '/login',
@@ -35,7 +36,7 @@ const router = createBrowserRouter([
             {
                 path: '/my-queries',
                 element: <PrivateRoute><MyQueries></MyQueries></PrivateRoute>,
-                loader: () => fetch('http://localhost:5000/my-queries')
+                loader: () => fetch('https://assignment-11-server-liard-five.vercel.app/my-queries')
             },
             {
                 path: '/add-queries',
@@ -44,32 +45,32 @@ const router = createBrowserRouter([
             {
                 path: '/update-my-queries/:id',
                 element: <UpdateMyQuries></UpdateMyQuries>,
-                loader: ({ params }) => fetch(`http://localhost:5000/my-queries/${params.id}`)
+                loader: ({ params }) => fetch(`https://assignment-11-server-liard-five.vercel.app/my-queries/${params.id}`)
             },
             {
                 path: '/queries',
                 element: <Queries></Queries>,
-                loader: () => fetch('http://localhost:5000/queries')
+                loader: () => fetch('https://assignment-11-server-liard-five.vercel.app/queries')
             },
             {
                 path: '/query-details/:id',
-                element:<PrivateRoute><QueryDetails></QueryDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/query-details/${params.id}`)
+                element: <PrivateRoute><QueryDetails></QueryDetails></PrivateRoute>,
+                loader: ({ params }) => fetch(`https://assignment-11-server-liard-five.vercel.app/query-details/${params.id}`)
             },
             {
                 path: '/perticular-recommend/:id',
                 element: <PerticularRecommendation></PerticularRecommendation>,
-                loader: ({ params }) => fetch(`http://localhost:5000/recommendation/perticular/${params.id}`)
+                loader: ({ params }) => fetch(`https://assignment-11-server-liard-five.vercel.app/recommendation/perticular/${params.id}`)
             },
             {
                 path: '/my-recommendation',
                 element: <PrivateRoute><MyRecommendation></MyRecommendation></PrivateRoute>,
-                // loader: () => fetch('http://localhost:5000/queries')
+                // loader: () => fetch('https://assignment-11-server-liard-five.vercel.app/queries')
             },
             {
                 path: '/recommendation-for-me',
                 element: <PrivateRoute><RecoForMe></RecoForMe></PrivateRoute>,
-                loader: () => fetch('http://localhost:5000/recommendation')
+                loader: () => fetch('https://assignment-11-server-liard-five.vercel.app/recommendation')
             }
         ]
     },
