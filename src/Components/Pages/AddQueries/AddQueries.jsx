@@ -36,7 +36,7 @@ const AddQueries = () => {
     }
 
     return (
-        <section className='max-w-[1170px] lg:mx-auto  my-8 max-sm:mx-3 md:mx-5'>
+        <section className='max-w-[1170px] lg:mx-auto  my-8 max-sm:mx-3 md:mx-5 mt-28'>
             {/* <Helmet>
                 <title>Add Queries</title>
             </Helmet> */}

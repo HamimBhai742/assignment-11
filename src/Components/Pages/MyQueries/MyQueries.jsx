@@ -11,19 +11,30 @@ const MyQueries = () => {
     // console.log(myQueriesData);
     console.log(myQueries);
     return (
-        <div className='mx-5'>
-            <div className="hero immggg1 my-5 h-[400px]">
-                {/* <div className="hero-overlay bg-opacity-60"></div> */}
-                <div className="hero-content text-center text-neutral-content">
-                    <div className="max-w-md">
-                        <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-                        <p className="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                        <Link to='/add-queries' className="px-8 border-2 py-3 font-semibold font-inter text-xl">Add Quries</Link>
+        <div className='mx-5 z-10 mt-28'>
+            {myQueries.length > 0 &&
+                <div className="hero immggg1 my-5 h-[400px] rounded-lg">
+                    {/* <div className="hero-overlay bg-opacity-60"></div> */}
+                    <div className="hero-content text-center text-neutral-content">
+                        <div className="max-w-[550px]">
+                            <h1 className="mb-5 text-5xl font-bold font-palyfair">Hello there</h1>
+                            <p className="mb-5 font-lato text-xl text-gray-400">You can add query about any product of your choice. You can add the product by showing a valid reason why the product should be boycotted. After you add or post this product, many people will recommend it to you as an alternative.</p>
+                            <Link to='/add-queries' className="px-5 py-3 font-semibold font-inter text-xl bg-amber-700 rounded-lg">Add Queries</Link>
+                        </div>
                     </div>
-                </div>
+                </div>}
+
+            <div>
+                {
+                    myQueries.length === 0 &&
+                    <div className='text-center  flex flex-col gap-6  items-center'>
+                        <h3 className='text-3xl font-bold capitalize font-lato'>No query found Please add query</h3>
+                        <Link to='/add-queries' className="px-5 py-3 font-semibold font-inter text-xl bg-green-600 rounded-lg text-amber-950 w-40">Add Queries</Link>
+                    </div>
+                }
             </div>
 
-            <div className='grid grid-cols-3 gap-5 '>
+            <div className='grid grid-cols-3 gap-5 mt-10'>
                 {
                     myQueries.map((myQuery, idx) => <MyQueriesDetails key={idx} myQuery={myQuery} myQueries={myQueries} setMyQueries={setMyQueries}></MyQueriesDetails>)
                 }

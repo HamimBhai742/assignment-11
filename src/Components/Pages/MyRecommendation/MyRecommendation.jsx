@@ -156,7 +156,7 @@ const MyRecommendation = () => {
 
     }
     return (
-        <div className='mx-5'>
+        <div className='mx-5 mt-24'>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}

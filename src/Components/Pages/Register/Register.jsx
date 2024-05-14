@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import { updateProfile } from 'firebase/auth';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
@@ -11,6 +11,8 @@ const Register = () => {
     const [showPassword, setShowPassword] = useState(false)
     const navigate=useNavigate()
     // console.log(createAccout);
+    const location = useLocation()
+    console.log(location);
     console.log(user);
     const showPasswordBtn = () => {
         setShowPassword(!showPassword)

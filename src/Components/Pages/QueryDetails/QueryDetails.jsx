@@ -82,7 +82,7 @@ const QueryDetails = () => {
 
     }
     return (
-        <section className="bg-white dark:bg-gray-900 max-w-[1170px] mx-auto my-8">
+        <section className="bg-white dark:bg-gray-900 max-w-[1170px] mx-auto my-8 mt-28">
             <div className="flex gap-5">
                 <div className="flex flex-col w-[470px] p-6 space-y-6 overflow-hidden rounded-lg shadow-md bg-violet-100  dark:bg-gray-50 dark:text-gray-800  font-lato">
                     <div className='flex justify-between'>
@@ -141,7 +141,7 @@ const QueryDetails = () => {
                                     {/* <input type="submit" value="Add" id="" className='w-1/2 btn btn-secondary  grid grid-cols-1' /> */}
                                 </div>
                                 <div className='w-full flex justify-end font-inter'>
-                                    <input type="submit" value="Add Recommendation" id="" className='w-full btn btn-secondary  text-xl font-semibold' />
+                                    <input type="submit" disabled={user?.email === userEmail} value="Add Recommendation" id="" className='w-full btn btn-secondary  text-xl font-semibold' />
                                 </div>
                             </form>
                         </div>

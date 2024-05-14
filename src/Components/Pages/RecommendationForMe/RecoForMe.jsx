@@ -9,7 +9,7 @@ const RecoForMe = () => {
     console.log(newData);
     console.log(lod);
     return (
-        <div>
+        <div className='mt-24 mx-5'>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
@@ -23,7 +23,7 @@ const RecoForMe = () => {
                             <th>Recommendation Reason</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className='font-lato'>
                         {
                             newData.map((reco, idx) => <tr key={idx}>
                             
@@ -31,7 +31,7 @@ const RecoForMe = () => {
                                     <div className="flex items-center gap-3">
                                         <div className="avatar">
                                             <div className="mask mask-squircle w-12 h-12">
-                                                <img src="https://img.daisyui.com/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
+                                                <img src={reco.recommenderPhoto} alt="Avatar Tailwind CSS Component" />
                                             </div>
                                         </div>
                                         <div>

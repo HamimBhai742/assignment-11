@@ -34,7 +34,7 @@ const Navbar = () => {
             }
         });
     }
-    
+
 
     const handleToggle = e => {
         if (e.target.checked) {
@@ -44,9 +44,9 @@ const Navbar = () => {
             setTheme('light')
         }
     }
-   
+
     return (
-        <div className="navbar bg-base-100 font-inter px-5">
+        <div className="navbar bg-base-100 font-inter px-5 fixed shadow-md z-50 top-0">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -112,12 +112,15 @@ const Navbar = () => {
                         <path d='M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z'></path>
                     </svg>
                 </label>
-                {user && <div className="avatar">
-                    <div className="w-16 rounded-full">
-                        <img src={user?.photoURL} />
+                {user && <div className=" w-16 h-16 rounded-full">
+                    <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
+                        <button className="w-16 rounded-full"><img className=' w-16 h-16 rounded-full' src={user?.photoURL} /></button>
                     </div>
                 </div>}
-                {user ? <button onClick={handelLogoutBtn} className='bg-blue-600 p-3 rounded-lg text-white text-lg font-semibold'>Logout</button> : <Link to='/login' className='bg-blue-600 p-3 rounded-lg text-white text-lg font-semibold'>Login</Link>}
+                {/* <div className="tooltip tooltip-left" data-tip="hello">
+                    <button className="w-16 rounded-full"><img className='w-16 h-16 rounded-full' src={user?.photoURL} /></button>
+                </div> */}
+                {user ? <button onClick={handelLogoutBtn} className='bg-teal-600 p-3 rounded-lg text-white text-lg font-semibold'>Logout</button> : <Link to='/login' className='bg-purple-600 p-3 rounded-lg text-white text-lg font-semibold'>Login</Link>}
             </div>
         </div>
     );

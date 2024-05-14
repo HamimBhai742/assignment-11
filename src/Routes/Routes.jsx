@@ -6,18 +6,19 @@ import Register from "../Components/Pages/Register/Register";
 import MyQueries from "../Components/Pages/MyQueries/MyQueries";
 import AddQueries from "../Components/Pages/AddQueries/AddQueries";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
-import ViewDetails from "../Components/Pages/ViewDetails/ViewDetails";
 import UpdateMyQuries from "../Components/Pages/Update/UpdateMyQuries";
 import Queries from "../Components/Pages/Queries/Queries";
 import QueryDetails from "../Components/Pages/QueryDetails/QueryDetails";
 import PerticularRecommendation from "../Components/Pages/Queries/PerticularRecommendation";
 import MyRecommendation from "../Components/Pages/MyRecommendation/MyRecommendation";
 import RecoForMe from "../Components/Pages/RecommendationForMe/RecoForMe";
+import Error from "../Components/Pages/Error/Error";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Root></Root>,
+        errorElement:<Error></Error>,
         children: [
             {
                 path: '/',
@@ -41,11 +42,6 @@ const router = createBrowserRouter([
                 element: <PrivateRoute><AddQueries></AddQueries></PrivateRoute>
             },
             {
-                path: '/view-details/:id',
-                element: <ViewDetails></ViewDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/my-queries/${params.id}`)
-            },
-            {
                 path: '/update-my-queries/:id',
                 element: <UpdateMyQuries></UpdateMyQuries>,
                 loader: ({ params }) => fetch(`http://localhost:5000/my-queries/${params.id}`)
@@ -57,7 +53,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/query-details/:id',
-                element: <QueryDetails></QueryDetails>,
+                element:<PrivateRoute><QueryDetails></QueryDetails></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/query-details/${params.id}`)
             },
             {

@@ -10,7 +10,7 @@ const MyQueriesDetails = ({ myQuery, setMyQueries, myQueries }) => {
     const navigate = useNavigate()
     const handelViewDetailsBtn = (id) => {
 
-        navigate(`/view-details/${id}`)
+        navigate(`/query-details/${id}`)
     }
     const handeldeleteBtn = (id) => {
         console.log(id);

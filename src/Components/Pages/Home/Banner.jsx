@@ -1,5 +1,6 @@
 import React from 'react';
 import imgbg from '../../../assets/img (3).jpg'
+import { Link } from 'react-router-dom';
 
 const Banner = () => {
     return (
@@ -9,7 +10,7 @@ const Banner = () => {
                 <div className="max-w-md">
                     <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
                     <p className="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                    <button className="px-8 border-2 py-3 text-xl font-inter">Quries</button>
+                    <Link to='/queries' className="px-8 border-2 py-3 text-xl font-inter">Quries</Link>
                 </div>
             </div>
         </div>
