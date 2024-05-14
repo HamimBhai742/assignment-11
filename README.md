@@ -1,8 +1,28 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Goods Galaxy
 
-Currently, two official plugins are available:
+## 🔗 https://alternative-products.web.app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Fetures 
+
+- Add Queries
+- Alternative Product Recommend
+- My Queries 
+- My Recommendation 
+- Update Queries
+- Delete My Queries
+- Recommend For Me 
+- Responsive For All Device
+
+## Category 
+- ###  Assignment_category_0009
+
+
+## Package 
+- AOS-Package
+- React-awesome-reveal
+- React-simple-typewriter
+
+
+
+
