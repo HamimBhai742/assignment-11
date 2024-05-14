@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
@@ -32,9 +33,9 @@ const UpdateMyQuries = () => {
     }
     return (
         <section className='max-w-[1170px] lg:mx-auto  my-8 mx-3 md:mx-5 md:mt-28 mt-20'>
-            {/* <Helmet>
-            <title>Add Queries</title>
-        </Helmet> */}
+            <Helmet>
+            <title>Update Queries</title>
+        </Helmet>
             <div className="p-6 bg-amber-100 mt-5 rounded-xl">
                 <form onSubmit={handelQueryUpdateBtn} noValidate="" action="" className="container font-poppins flex flex-col mx-auto space-y-12">
                     <fieldset className="py-5 px-10">

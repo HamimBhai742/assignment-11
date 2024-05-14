@@ -4,6 +4,7 @@ import useAuth from '../../../hooks/useAuth';
 import { updateProfile } from 'firebase/auth';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const Register = () => {
     const { createUserAccout, user } = useAuth()
@@ -54,10 +55,13 @@ const Register = () => {
     }
     return (
         <div className="hero min-h-screen bg-base-200 font-poppins mt-28">
+            <Helmet>
+                <title>Register</title>
+            </Helmet>
             <div className="hero-content">
-                <div className="card  w-full lg:w-[650px] bg-base-100">
+                <div className="card  w-[350px] md:w-[650px] bg-base-100">
                     <div className="text-center pt-3">
-                        <h1 className="text-4xl font-bold font-palyfair">Create Account!</h1>
+                        <h1 className="md:text-4xl text-2xl font-bold font-palyfair">Create Account!</h1>
                         {/* <p className="py-3">Enter your email and password to access your account</p> */}
                     </div>
                     <form className="card-body -mt-5" onSubmit={handelRegisterBtn}>
@@ -92,7 +96,7 @@ const Register = () => {
                         </div>
                     </form>
                     <div>
-                        <p className="text-center pb-5">Already have an account? <Link to='/login' className="font-semibold text-violet-600 hover:underline">Login here</Link></p>
+                        <p className="text-center pb-5 max-sm:text-sm">Already have an account? <Link to='/login' className="font-semibold text-violet-600 hover:underline">Login here</Link></p>
                     </div>
                 </div>
             </div>

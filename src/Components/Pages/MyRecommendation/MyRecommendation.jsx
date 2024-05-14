@@ -4,6 +4,7 @@ import { useLoaderData } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const MyRecommendation = () => {
     const { user } = useAuth()
@@ -157,6 +158,9 @@ const MyRecommendation = () => {
     }
     return (
         <div className='md:mx-5 md:mt-24 mt-20 mx-3'>
+            <Helmet>
+                <title>My Recommendation</title>
+            </Helmet>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}

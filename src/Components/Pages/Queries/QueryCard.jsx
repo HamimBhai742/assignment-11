@@ -41,7 +41,7 @@ const QueryCard = ({ query }) => {
                     <div data-aos="fade-up">
                         <p>Recommendation Count:  {recommendationCount}</p>
                     </div>
-                    <div className="mt-4 flex gap-8 items-center" data-aos="fade-up-right">
+                    <div className="mt-4 flex lg:gap-8 md:gap-3 gap-8 items-center" data-aos="fade-up-right">
                         <div className="flex items-center">
                             <div className="flex items-center">
                                 <img className="object-cover h-12 w-12 rounded-full" src={userPhoto} alt="Avatar" />

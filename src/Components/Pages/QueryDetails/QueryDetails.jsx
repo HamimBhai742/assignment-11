@@ -5,6 +5,7 @@ import useAuth from '../../../hooks/useAuth'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 const QueryDetails = () => {
     const { user } = useAuth()
     const { id } = useParams()
@@ -82,9 +83,12 @@ const QueryDetails = () => {
 
     }
     return (
-        <section className="bg-white dark:bg-gray-900 max-w-[1170px] md:mx-auto my-8 md:mt-28 mx-3 mt-20">
-            <div className="flex gap-5 max-sm:flex-col">
-                <div className="flex flex-col w-full md:w-[470px] p-6 space-y-6 overflow-hidden rounded-lg shadow-md bg-violet-100  dark:bg-gray-50 dark:text-gray-800  font-lato">
+        <section className="bg-white dark:bg-gray-900 max-w-[1170px] lg:mx-auto my-8 md:mt-28 mx-3 md:mx-5 mt-20">
+            <div className="flex gap-5 flex-col lg:flex-row">
+                <Helmet>
+                    <title>Query Details</title>
+                </Helmet>
+                <div className="flex flex-col w-full lg:w-[470px] p-6 space-y-6 overflow-hidden rounded-lg shadow-md bg-violet-100  dark:bg-gray-50 dark:text-gray-800  font-lato">
                     <div className='flex justify-between'>
                         <div className="flex md:space-x-4 space-x-2">
                             <img alt="" src={userPhoto} className="object-cover md:w-12 w-10 h-10 md:h-12 rounded-full shadow dark:bg-gray-500" />

@@ -3,6 +3,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 import MyQueriesDetails from './MyQueriesDetails';
 import useAuth from '../../../hooks/useAuth';
 import { useTypewriter, Cursor } from 'react-simple-typewriter'
+import { Helmet } from 'react-helmet';
 
 const MyQueries = () => {
     const loderQueries = useLoaderData()
@@ -19,6 +20,9 @@ const MyQueries = () => {
     })
     return (
         <div className='md:mx-5 mx-3 z-10 md:mt-28 mt-20'>
+            <Helmet>
+                <title>My Queries</title>
+            </Helmet>
             {myQueries.length > 0 &&
                 <div className="hero immggg1 my-5 h-[400px] rounded-lg">
                     {/* <div className="hero-overlay bg-opacity-60"></div> */}
@@ -41,7 +45,7 @@ const MyQueries = () => {
                 }
             </div>
 
-            <div className='grid md:grid-cols-3 grid-cols-1 gap-5 mt-10'>
+            <div className='grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-5 mt-10'>
                 {
                     myQueries.map((myQuery, idx) => <MyQueriesDetails key={idx} myQuery={myQuery} myQueries={myQueries} setMyQueries={setMyQueries}></MyQueriesDetails>)
                 }

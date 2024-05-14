@@ -2,6 +2,7 @@ import React from 'react';
 import useAuth from '../../../hooks/useAuth';
 import { useLoaderData } from 'react-router-dom';
 import { Fade } from 'react-awesome-reveal';
+import { Helmet } from 'react-helmet';
 
 const RecoForMe = () => {
     const lod = useLoaderData()
@@ -11,6 +12,9 @@ const RecoForMe = () => {
     console.log(lod);
     return (
         <div className='md:mt-24 md:mx-5 mx-3 mt-20'>
+            <Helmet>
+                <title>Recommendation For Me</title>
+            </Helmet>
             <Fade cascade duration={3000}>
                 <div className="overflow-x-auto">
                     <table className="table">

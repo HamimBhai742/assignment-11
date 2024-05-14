@@ -4,6 +4,7 @@ import useAuth from "../../../hooks/useAuth";
 import Swal from 'sweetalert2'
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
     const { logInUserAccount, loginWithGoogle } = useAuth()
@@ -56,11 +57,14 @@ const Login = () => {
     }
     return (
         <div className="hero min-h-screen bg-base-200 font-poppins mt-28">
+            <Helmet>
+                <title>Login</title>
+            </Helmet>
             <div className="hero-content">
                 <div className="card  w-full lg:w-[650px] bg-base-100">
                     <div className="text-center pt-3">
                         <h1 className="text-4xl font-bold font-palyfair">Welcome Back!</h1>
-                        <p className="py-3">Enter your email and password to access your account</p>
+                        <p className="p-3">Enter your email and password to access your account</p>
                     </div>
                     <form className="card-body -mt-5" onSubmit={handelLoginBtn}>
                         <div className="form-control">
@@ -92,7 +96,7 @@ const Login = () => {
                         <p className="border-2 p-3 rounded-lg flex items-center justify-center gap-3 font-semibold"><span className="text-3xl"><FcGoogle></FcGoogle></span>Login With Google</p>
                     </div>
                     <div>
-                        <p className="text-center py-3">Don't have an account? <Link state={location.state} to='/register' className="font-semibold text-violet-600 hover:underline">Register here</Link></p>
+                        <p className="text-center py-3 max-sm:text-sm">Don't have an account? <Link state={location.state} to='/register' className="font-semibold text-violet-600 hover:underline">Register here</Link></p>
                     </div>
                 </div>
             </div>
