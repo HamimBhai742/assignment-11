@@ -36,7 +36,7 @@ const router = createBrowserRouter([
             {
                 path: '/my-queries',
                 element: <PrivateRoute><MyQueries></MyQueries></PrivateRoute>,
-                loader: () => fetch('https://assignment-11-server-liard-five.vercel.app/my-queries')
+                // loader: () => fetch('https://assignment-11-server-liard-five.vercel.app/my-queries')
             },
             {
                 path: '/add-queries',

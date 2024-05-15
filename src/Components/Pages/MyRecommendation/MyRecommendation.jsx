@@ -136,16 +136,16 @@ const MyRecommendation = () => {
                                     </div>
                                 </td>
                                 <td>
-                                    <p className='font-semibold max-sm:text-xs'>{reco.currentDateAndTime}</p>
+                                    <p className=' max-sm:text-xs'>{reco.currentDateAndTime}</p>
                                 </td>
                                 <td>
-                                    <p className='font-semibold max-sm:text-xs'>{reco.recommendationProName}</p>
+                                    <p className=' max-sm:text-xs'>{reco.recommendationProName}</p>
                                 </td>
                                 <td>
-                                    <p className='font-semibold max-sm:text-xs'>{reco.recommendationReason}</p>
+                                    <p className=' max-sm:text-xs'>{reco.recommendationReason}</p>
                                 </td>
                                 <td>
-                                    <p className='font-semibold max-sm:text-xs'>{reco.recommendationTitel}</p>
+                                    <p className=' max-sm:text-xs'>{reco.recommendationTitel}</p>
                                 </td>
                                 <th>
                                     <button onClick={() => handelMyRecommendDeleteBtn(reco._id)} className="md:text-2xl text-xl"><RiDeleteBin6Line></RiDeleteBin6Line></button>

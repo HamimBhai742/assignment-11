@@ -117,9 +117,6 @@ const Navbar = () => {
                         <button className="w-16 rounded-full"><img className=' w-16 h-16 rounded-full' src={user?.photoURL} /></button>
                     </div>
                 </div>}
-                {/* <div className="tooltip tooltip-left" data-tip="hello">
-                    <button className="w-16 rounded-full"><img className='w-16 h-16 rounded-full' src={user?.photoURL} /></button>
-                </div> */}
                 {user ? <button onClick={handelLogoutBtn} className='bg-teal-600 p-3 rounded-lg text-white md:text-lg md:font-semibold'>Logout</button> : <Link to='/login' className='bg-purple-600 p-3 rounded-lg text-white md:text-lg md:font-semibold'>Login</Link>}
             </div>
         </div>

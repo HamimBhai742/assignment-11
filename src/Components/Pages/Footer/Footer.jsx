@@ -7,7 +7,7 @@ const Footer = () => {
             <div className="container flex flex-col items-center justify-between p-6 mx-auto space-y-4 sm:space-y-0 sm:flex-row">
                 <a className=' flex gap-3 items-center'>
                     <img className="w-auto h-8" src="/web-logo.png" alt="" />
-                    <h3 className='lg:text-4xl md:text-2xl font-bold font-palyfair text-white text-4xl'>Goods Galaxy</h3>
+                    <h3 className='lg:text-4xl md:text-2xl font-bold font-palyfair text-white text-3xl'>Goods Galaxy</h3>
                 </a>
 
                 <p className="text-sm text-gray-400 pt-6">© Copyright 2023. All Rights Reserved.</p>

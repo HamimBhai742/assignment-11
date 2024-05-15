@@ -1,29 +1,35 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import MyQueriesDetails from './MyQueriesDetails';
 import useAuth from '../../../hooks/useAuth';
 import { useTypewriter, Cursor } from 'react-simple-typewriter'
 import { Helmet } from 'react-helmet';
+import axios from 'axios';
 
 const MyQueries = () => {
-    const loderQueries = useLoaderData()
     const { user } = useAuth()
-    const myQueriesData = loderQueries.filter(myQuery => myQuery.userEmail === user?.email)
-    const [myQueries, setMyQueries] = useState(myQueriesData)
-    // console.log(myQueriesData);
-    console.log(myQueries);
+    const [myQue, setMyQue] = useState([])
+    useEffect(() => {
+        axios.get(`https://assignment-11-server-liard-five.vercel.app/my-queries?email=${user?.email}`, { withCredentials: true })
+            .then(res => {
+                const myQueriesData = res.data.filter(myQuery => myQuery.userEmail === user?.email)
+                setMyQue(myQueriesData)
+            })
+    }, [user])
+
     const [text] = useTypewriter({
         words: ['Hello there'],
-        typeSpeed:200,
-        loop: 0,
+        typeSpeed: 200,
+        loop: 1,
         onLoopDone: () => console.log(`loop completed after 3 runs.`)
     })
+
     return (
         <div className='md:mx-5 mx-3 z-10 md:mt-28 mt-20'>
             <Helmet>
                 <title>My Queries</title>
             </Helmet>
-            {myQueries.length > 0 &&
+            {myQue?.length > 0 &&
                 <div className="hero immggg1 my-5 h-[400px] rounded-lg">
                     {/* <div className="hero-overlay bg-opacity-60"></div> */}
                     <div className="hero-content text-center text-neutral-content">
@@ -37,9 +43,9 @@ const MyQueries = () => {
 
             <div>
                 {
-                    myQueries.length === 0 &&
+                    myQue?.length === 0 &&
                     <div className='flex flex-col gap-8 justify-center items-center min-h-screen'>
-                        <h3 className='text-3xl font-bold capitalize font-lato'>No query found Please add query</h3>
+                        <h3 className='md:text-3xl text-xl font-bold capitalize font-lato'>No query found Please add query</h3>
                         <Link to='/add-queries' className="px-5 py-3 font-semibold font-inter text-xl bg-green-600 rounded-lg text-amber-950 w-40">Add Queries</Link>
                     </div>
                 }
@@ -47,7 +53,7 @@ const MyQueries = () => {
 
             <div className='grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-5 mt-10'>
                 {
-                    myQueries.map((myQuery, idx) => <MyQueriesDetails key={idx} myQuery={myQuery} myQueries={myQueries} setMyQueries={setMyQueries}></MyQueriesDetails>)
+                    myQue?.map((myQuery, idx) => <MyQueriesDetails key={idx} myQuery={myQuery} myQue={myQue} setMyQue={setMyQue}></MyQueriesDetails>)
                 }
             </div>
         </div>

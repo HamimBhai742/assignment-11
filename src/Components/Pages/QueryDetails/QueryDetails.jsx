@@ -92,11 +92,11 @@ const QueryDetails = () => {
                     </div>
                     <div>
                         <img src={productImg} alt="" className="object-cover w-full mb-4 rounded-lg h-60  dark:bg-gray-500" />
-                        <h2 className="mb-1 text-xl font-semibold">Cocacola</h2>
-                        <h2 className="mb-1 text-xl font-semibold">Isrial Products Hints</h2>
-                        <p>Cocacola is dengriou for our health</p>
-                        <p>This Product is isrial product</p>
-                        <p>Recommendation Count: {recommendCount}</p>
+                        <h2 className="mb-1 text-2xl font-bold">{productName}</h2>
+                        <h2 className="mb-1 text-xl font-semibold">{productBrand}</h2>
+                        <h2 className="mb-2 text-xl font-semibold">{queryTitel}</h2>
+                        <p className='mb-1'>{boycottingReason}</p>
+                        <p><span className='font-bold'>Recommendation Count:</span> {recommendCount}</p>
                     </div>
                 </div>
 
@@ -107,7 +107,7 @@ const QueryDetails = () => {
                         </h1>
 
                         <div className="mt-6">
-                            <form onSubmit={handelAddRecomend} className="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2">
+                            <form onSubmit={handelAddRecomend} className="space-y-4 mt-8 md:grid-cols-2">
                                 <div>
                                     <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200 font-semibold">Recommendation Title</label>
                                     <input type="text" name='reTitel' placeholder="Recommendation Title" className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />

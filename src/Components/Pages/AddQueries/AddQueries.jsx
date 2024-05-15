@@ -65,10 +65,7 @@ const AddQueries = () => {
                                 <label htmlFor="lastname" className="md:text-xl font-semibold">Query Title</label>
                                 <input id="lastname" type="text" placeholder="Query TItle" className="w-full pl-3 h-12  rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300" name='queryTitel' />
                             </div>
-                            {/* <div className="col-span-full">
-                            <label htmlFor="address" className="text-xl font-semibold">Photo</label>
-                            <input id="address" type="url" placeholder="Enter photo URL" className="w-full h-12   pl-3 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300" name='photo' />
-                        </div> */}
+                       
 
                             <div className="col-span-full">
                                 <label htmlFor="address" className="md:text-xl font-semibold">Boycotting Reason Details</label>

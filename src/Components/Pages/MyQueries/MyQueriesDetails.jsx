@@ -5,7 +5,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { Fade } from "react-awesome-reveal";
 
-const MyQueriesDetails = ({ myQuery, setMyQueries, myQueries }) => {
+const MyQueriesDetails = ({ myQuery, setMyQue, myQue }) => {
     const { user } = useAuth()
     const { userEmail, boycottingReason, queryTitel, currentDateAndTime, productBrand, userName, userPhoto, productImg, _id, productName } = myQuery
     console.log(myQuery);
@@ -34,8 +34,8 @@ const MyQueriesDetails = ({ myQuery, setMyQueries, myQueries }) => {
                 axios.delete(`https://assignment-11-server-liard-five.vercel.app/my-queries/${id}`)
                     .then(res => {
                         console.log(res.data);
-                        const newMyQueries = myQueries.filter(myQuery => myQuery._id !== id)
-                        setMyQueries(newMyQueries)
+                        const newMyQueries = myQue.filter(myQuery => myQuery._id !== id)
+                        setMyQue(newMyQueries)
                     })
             }
         });
@@ -57,7 +57,7 @@ const MyQueriesDetails = ({ myQuery, setMyQueries, myQueries }) => {
                         <h2 className="mb-1 text-2xl font-lato font-bold">{productName}</h2>
                         <h2 className="mb-1 text-xl font-lato font-semibold text-blue-500">#{productBrand}</h2>
                         <p className="mt-2 font-semibold">{queryTitel}</p>
-                        <p className="mt-3 font-lato">{boycottingReason.slice(0,210)}<span className='text-blue-600 cursor-pointer font-poppins text-sm'> ...Read More</span></p>
+                        <p className="mt-3 font-lato">{boycottingReason.slice(0,200)}<span className='text-blue-600 cursor-pointer font-poppins text-sm'> ...Read More</span></p>
 
                     </div>
                     <div className="flex flex-wrap justify-between">
