@@ -36,7 +36,7 @@ const QueryCard = ({ query }) => {
                         <span data-aos="fade-up-left" className="text-xl font-bold text-blue-600">{productName}</span>
                         <p data-aos="fade-up-right">{productBrand}</p>
                         <a data-aos="fade-down-right" className="block mt-2 text-lg font-semibold text-gray-800 transition-colors duration-300 transform dark:text-white hover:text-gray-600 hover:underline" role="link">{queryTitel}</a>
-                        <p data-aos="fade-down-left" className="mt-2 text-base text-gray-600 dark:text-gray-400">{boycottingReason.slice(0,170)}<span className='text-blue-600 cursor-pointer font-poppins text-sm'> ...Read More</span></p>
+                        <p data-aos="fade-down-left" className="mt-2 text-base text-gray-600 dark:text-gray-400">{boycottingReason.slice(0,160)}<span className='text-blue-600 cursor-pointer font-poppins text-sm'> ...Read More</span></p>
                     </div>
                     <div className="mt-6 flex lg:gap-8 md:gap-3 gap-8 items-center" data-aos="fade-up-right">
                         <div className="flex items-center">

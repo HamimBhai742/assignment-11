@@ -136,13 +136,13 @@ const MyRecommendation = () => {
                                     </div>
                                 </td>
                                 <td>
-                                    <p className=' max-sm:text-xs'>{reco.currentDateAndTime}</p>
+                                    <p className=' max-sm:text-xs w-36'>{reco.currentDateAndTime}</p>
                                 </td>
                                 <td>
                                     <p className=' max-sm:text-xs'>{reco.recommendationProName}</p>
                                 </td>
                                 <td>
-                                    <p className=' max-sm:text-xs'>{reco.recommendationReason}</p>
+                                    <p className=' max-sm:text-xs'>{reco.recommendationReason.slice(0,120)}<span className='text-blue-600 cursor-pointer font-lato text-sm'> ...Read More</span></p>
                                 </td>
                                 <td>
                                     <p className=' max-sm:text-xs'>{reco.recommendationTitel}</p>

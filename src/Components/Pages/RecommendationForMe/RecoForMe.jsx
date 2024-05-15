@@ -50,7 +50,7 @@ const RecoForMe = () => {
                                     <td><p className='max-sm:text-xs'>{reco.productName}</p></td>
                                     <td><p className='max-sm:text-xs'>{reco.recommendationProName}</p></td>
                                     <td><p className='max-sm:text-xs'>{reco.recommendationTitel}</p></td>
-                                    <td><p className='max-sm:text-xs'>{reco.recommendationReason}</p></td>
+                                    <td><p className='max-sm:text-xs'>{reco.recommendationReason.slice(0,140)}<span className='text-blue-600 cursor-pointer font-poppins text-sm'> ...Read More</span></p></td>
                                 </tr>)
                             }
 
