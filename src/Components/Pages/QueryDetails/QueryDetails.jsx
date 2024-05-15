@@ -60,15 +60,6 @@ const QueryDetails = () => {
         axios.patch(`https://assignment-11-server-liard-five.vercel.app/query-details/${_id}`, { count })
             .then(res => {
                 console.log(res.data);
-                // fetch(`https://assignment-11-server-liard-five.vercel.app/query-details/${id}`)
-                //     .then((res) => res.json())
-                //     .then(data => {
-                //         // const {recommendationCount}=data
-                //         setRCount(data)
-                //         setData(datas);
-
-                //     })
-                // setRecommedCount(recommendationCount)
                 if (res.data.modifiedCount > 0) {
                     console.log('click');
                     setRecommedCount(recommendationCount)
@@ -107,11 +98,6 @@ const QueryDetails = () => {
                         <p>This Product is isrial product</p>
                         <p>Recommendation Count: {recommendCount}</p>
                     </div>
-                    {/* <div className="flex flex-wrap justify-between">
-                        <button onClick={() => handelViewDetailsBtn(_id)} className="btn btn-secondary">View Details</button>
-                        <Link to={`/update-my-queries/${_id}`} className="btn btn-success text-white">Update</Link>
-                        <button onClick={() => handeldeleteBtn(_id)} className="btn btn-error">Delete</button>
-                    </div> */}
                 </div>
 
                 <div className="flex items-center w-full max-w-3xl p-8 mx-auto lg:px-12 lg:w-3/5 font-lato rounded-lg shadow-md bg-violet-100">

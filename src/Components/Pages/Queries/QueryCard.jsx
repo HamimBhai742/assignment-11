@@ -35,13 +35,10 @@ const QueryCard = ({ query }) => {
                     <div>
                         <span data-aos="fade-up-left" className="text-xl font-bold text-blue-600">{productName}</span>
                         <p data-aos="fade-up-right">{productBrand}</p>
-                        <a data-aos="fade-down-right" href="#" className="block mt-2 text-xl font-semibold text-gray-800 transition-colors duration-300 transform dark:text-white hover:text-gray-600 hover:underline" role="link">{queryTitel}</a>
-                        <p data-aos="fade-down-left" className="mt-2 text-sm text-gray-600 dark:text-gray-400">{boycottingReason}</p>
+                        <a data-aos="fade-down-right" className="block mt-2 text-lg font-semibold text-gray-800 transition-colors duration-300 transform dark:text-white hover:text-gray-600 hover:underline" role="link">{queryTitel}</a>
+                        <p data-aos="fade-down-left" className="mt-2 text-base text-gray-600 dark:text-gray-400">{boycottingReason.slice(0,170)}<span className='text-blue-600 cursor-pointer font-poppins text-sm'> ...Read More</span></p>
                     </div>
-                    <div data-aos="fade-up">
-                        <p>Recommendation Count:  {recommendationCount}</p>
-                    </div>
-                    <div className="mt-4 flex lg:gap-8 md:gap-3 gap-8 items-center" data-aos="fade-up-right">
+                    <div className="mt-6 flex lg:gap-8 md:gap-3 gap-8 items-center" data-aos="fade-up-right">
                         <div className="flex items-center">
                             <div className="flex items-center">
                                 <img className="object-cover h-12 w-12 rounded-full" src={userPhoto} alt="Avatar" />
@@ -58,18 +55,7 @@ const QueryCard = ({ query }) => {
                             {/* <span className='text-xl absolute top-[2px]'><FaRegCommentAlt /></span> */}
                             <Link to={`/perticular-recommend/${_id}`} className='text-3xl absolute left-[120px]'><FaRegComment></FaRegComment></Link>
                             <Link to={`/perticular-recommend/${_id}`} className='absolute left-[128px] text-sm top-1'>{recommendationCount}</Link>
-                            {/* You can open the modal using document.getElementById('ID').showModal() method */}
-                            {/* <button className="" onClick={() => document.getElementById('my_modal_3').showModal()}><FaRegComment></FaRegComment></button>
-                            <dialog id="my_modal_3" className="modal">
-                                <div className="modal-box">
-                                    <form method="dialog"> */}
-                            {/* if there is a button in form, it will close the modal */}
-                            {/* <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-                                    </form>
-                                    <h3 className="font-bold text-lg">Hello!</h3>
-                                    <p className="py-4">Press ESC key or click on ✕ button to close</p>
-                                </div>
-                            </dialog> */}
+                           
                         </div>
                     </div>
                 </div>

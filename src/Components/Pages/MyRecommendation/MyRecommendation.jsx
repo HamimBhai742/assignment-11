@@ -10,21 +10,9 @@ const MyRecommendation = () => {
     const { user } = useAuth()
     // const loderQueries = useLoaderData()
     const [querryId, setQuerryId] = useState(null)
-    // console.log(querryId);
-    // const [recommendId, setRecomandId] = useState(null)
-    // console.log(recommendId);
     const [recommendCount, setRecommendCount] = useState(null)
     const [recommend, setRecommed] = useState([])
     const [click, setClick] = useState(false)
-    const [click11, setClick11] = useState(false)
-    // let decCount = recommendCount
-    // console.log(decCount);
-    // console.log(recommendId);
-    // // console.log('loderQue:', recommendCount);
-    // // console.log(recommendId, 'ccccooouunnnttt');
-    // console.log(querryId, 'ttttttttt');
-    // console.log(user?.displayName);
-
     useEffect(() => {
         axios.get(`https://assignment-11-server-liard-five.vercel.app/recommendation/${user?.email}`)
             .then(res => {
@@ -35,17 +23,6 @@ const MyRecommendation = () => {
 
     }, [user])
 
-    // if (recommendId) {
-    //     // useEffect(() => {
-    //         fetch(`https://assignment-11-server-liard-five.vercel.app/my-recommendation/${recommendId}`)
-    //             .then(res => res.json())
-    //             .then(data => {
-    //                 const { queryId } = data
-    //                 setQuerryId(queryId);
-    //                 // console.log(querryId);
-    //             })
-    //     // }, [recommendId, querryId])
-    // }
 
     if (querryId) {
         fetch(`https://assignment-11-server-liard-five.vercel.app/queries/${querryId}`)
@@ -54,12 +31,6 @@ const MyRecommendation = () => {
                 // console.log(datas);
                 const { recommendationCount } = datas
                 setRecommendCount(recommendationCount)
-                // setClick11(false)
-                // console.log('kire', datas);
-                // console.log('hhhhhhhh', querryId);
-                // const newDataQ = datas.find(q => q._id === querryId)
-                // console.log(newDataQ);
-
 
             })
     }
@@ -99,21 +70,6 @@ const MyRecommendation = () => {
 
             })
 
-
-
-
-        // console.log(querryId);
-
-        // fetch(`https://assignment-11-server-liard-five.vercel.app/queries/${querryId}`)
-        //     .then(res => res.json())
-        //     .then(datas => {
-        //         console.log(datas);
-        //         // const { recommendationCount } = datas
-        //         // setRecommendCount(recommendationCount)
-        //     })
-
-        //     console.log(recommendCount);
-        // console.log(decCount);
         Swal.fire({
             title: "Are you sure?",
             text: "You want delete this!",
@@ -138,19 +94,6 @@ const MyRecommendation = () => {
                         setClick(true)
 
                     })
-
-                // fetch(`https://assignment-11-server-liard-five.vercel.app/my-recommendation/${id}`)
-                //     .then(res => res.json())
-                //     .then(data => {
-                //         const { queryId } = data
-                //         setQuerryId(queryId);
-                //     })
-
-
-
-                // const upCount = recommendCount - 1
-                // console.log(upCount);
-                // decCount--
 
             }
         });
@@ -183,7 +126,7 @@ const MyRecommendation = () => {
                                     <div className="flex items-center gap-3">
                                         <div className="avatar">
                                             <div className="mask mask-squircle w-12 h-12">
-                                                <img src="https://img.daisyui.com/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
+                                                <img src={reco.userPhoto} alt="Avatar Tailwind CSS Component" />
                                             </div>
                                         </div>
                                         <div>

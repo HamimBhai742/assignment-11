@@ -7,9 +7,9 @@ const RecntOueryCard = ({ que }) => {
     const { userPhoto, userName, productBrand, currentDateAndTime, productImg, productName, boycottingReason, queryTitel } = que
     useEffect(() => {
         AOS.init({
-            disable:'mobile',
-            duration:1000,
-            offset:140
+            disable: 'mobile',
+            duration: 1000,
+            offset: 140
         });
     }, [])
     return (
@@ -23,10 +23,10 @@ const RecntOueryCard = ({ que }) => {
                 <img data-aos='fade-down-right' src={productImg} className='w-full h-[300px] rounded-xl' alt="" />
 
             </div>
-            <div className="my-2 font-inter">
-                <a data-aos="fade-down-left" className="text-xl font-bold text-gray-700 dark:text-white hover:text-gray-600 dark:hover:text-gray-200 hover:underline">{queryTitel}</a>
-                <p data-aos="fade-up-right" className="mt-1 text-gray-600 dark:text-gray-300">{productName}</p>
-                <p data-aos="fade-up-left" className="mt-1 text-gray-600 dark:text-gray-300">{boycottingReason}</p>
+            <div className="font-inter mt-4">
+                <p data-aos="fade-up-left" className="mb-3 text-2xl font-bold">{productName}</p>
+                <a data-aos="fade-down-left" className="text-lg mb-2 font-bold text-gray-700 dark:text-white hover:text-gray-600 dark:hover:text-gray-200 hover:underline">{queryTitel}</a>
+                <p data-aos="fade-up-right" className="mt-1 text-gray-600 dark:text-gray-300">{boycottingReason}</p>
             </div>
 
             <div className="flex items-center justify-between mt-3" data-aos="fade-up-right">

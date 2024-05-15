@@ -7,7 +7,8 @@ import { Fade } from "react-awesome-reveal";
 
 const MyQueriesDetails = ({ myQuery, setMyQueries, myQueries }) => {
     const { user } = useAuth()
-    const { userEmail, currentDateAndTime, userName, userPhoto, productImg, _id } = myQuery
+    const { userEmail, boycottingReason, queryTitel, currentDateAndTime, productBrand, userName, userPhoto, productImg, _id, productName } = myQuery
+    console.log(myQuery);
     const navigate = useNavigate()
     const handelViewDetailsBtn = (id) => {
 
@@ -53,10 +54,10 @@ const MyQueriesDetails = ({ myQuery, setMyQueries, myQueries }) => {
                     </div>
                     <div>
                         <img src={productImg} alt="" className="object-cover w-full mb-4 rounded-lg h-60  dark:bg-gray-500" />
-                        <h2 className="mb-1 text-xl font-semibold">Cocacola</h2>
-                        <h2 className="mb-1 text-xl font-semibold">Isrial Products Hints</h2>
-                        <p>Cocacola is dengriou for our health</p>
-                        <p>This Product is isrial product</p>
+                        <h2 className="mb-1 text-2xl font-lato font-bold">{productName}</h2>
+                        <h2 className="mb-1 text-xl font-lato font-semibold text-blue-500">#{productBrand}</h2>
+                        <p className="mt-2 font-semibold">{queryTitel}</p>
+                        <p className="mt-3 font-lato">{boycottingReason.slice(0,210)}<span className='text-blue-600 cursor-pointer font-poppins text-sm'> ...Read More</span></p>
 
                     </div>
                     <div className="flex flex-wrap justify-between">
