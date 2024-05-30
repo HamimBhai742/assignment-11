@@ -8,6 +8,7 @@ const Queries = () => {
     const loderQueries = useLoaderData()
     const [queriesData, setQueriesData] = useState(loderQueries)
     const [layout, setLayout] = useState(false)
+    const [selected, setSlected] = useState()
     console.log(loderQueries);
     const handleToggle = () => {
         setLayout(!layout)
@@ -23,6 +24,18 @@ const Queries = () => {
         console.log(input.value);
 
     }
+    const handelShortingBtn = (e) => {
+        setSlected(e.target.value);
+        // console.log(selected);
+        // console.log(myCraft);
+    }
+    console.log(selected);
+    if (selected === 'Lowest Recommend') {
+        const lowest = queriesData.sort((a, b) => (a.recommendationCount < b.recommendationCount) ? -1 : (a.recommendationCount > b.recommendationCount) ? 1 : 0);
+    }
+    else if (selected === 'Highest Recommend') {
+        const highest = queriesData.sort((a, b) => (a.recommendationCount < b.recommendationCount) ? 1 : (a.recommendationCount > b.recommendationCount) ? -1 : 0);
+    }
     return (
         <div className='md:mx-5 mx-3 mt-28'>
             <Helmet>
@@ -30,12 +43,19 @@ const Queries = () => {
             </Helmet>
             <div className=' flex justify-around mb-5'>
 
-                <label className="input input-bordered flex items-center gap-2">
-                    <input id='seaarchValue' type="text" className="grow" placeholder="Search" />
+                <div className='flex gap-3 items-center'>
+                    <label className="input input-bordered flex items-center gap-2">
+                        <input id='seaarchValue' type="text" className="grow" placeholder="Search" />
 
-                    <svg onClick={handelSearchBtn} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-6 h-6 opacity-70 hover:cursor-pointer"><path fillRule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clipRule="evenodd" /></svg>
-                    {/* <input xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-6 h-6 opacity-70 hover:cursor-pointer"><path fillRule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clipRule="evenodd" /></svg> */}
-                </label>
+                        <svg onClick={handelSearchBtn} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-6 h-6 opacity-70 hover:cursor-pointer"><path fillRule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clipRule="evenodd" /></svg>
+                        {/* <input xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-6 h-6 opacity-70 hover:cursor-pointer"><path fillRule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clipRule="evenodd" /></svg> */}
+                    </label>
+                    <select  value={selected} onChange={handelShortingBtn} className="select select-bordered w-full max-w-xs">
+                        <option disabled selected>Sort By</option>
+                        <option>Highest Recommend</option>
+                        <option>Lowest Recommend</option>
+                    </select>
+                </div>
 
                 <div className='lg:flex gap-3 items-center hidden'>
                     <h4 className='font-lato font-semibold'>Change Layout</h4>

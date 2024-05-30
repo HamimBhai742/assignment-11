@@ -7,7 +7,7 @@ import { Helmet } from 'react-helmet';
 const RecoForMe = () => {
     const lod = useLoaderData()
     const { user } = useAuth()
-    const newData = lod.filter(d => d.recommenderEmail !== user.email)
+    const newData = lod.filter(d => d.userEmail === user.email)
     console.log(newData);
     console.log(lod);
     return (
