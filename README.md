@@ -2,6 +2,8 @@
 # Goods Galaxy
 
 ## 🔗 https://alternative-products.web.app
+## Overview
+It is a contest creation platform with the help of which a user can register for any contest by making payment. There is a contest creator who selects the winner and an admin who controls the user and contest creator. User cannot participate in any contest without login.
 
 ## Fetures 
 
