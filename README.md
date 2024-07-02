@@ -3,7 +3,7 @@
 
 ## 🔗 https://alternative-products.web.app
 ## Overview
-It is a contest creation platform with the help of which a user can register for any contest by making payment. There is a contest creator who selects the winner and an admin who controls the user and contest creator. User cannot participate in any contest without login.
+This is an alternative product related website where any user can recommend an alternative product of that product among the products posted by other users and the user can add the product of his choice.
 
 ## Fetures 
 
