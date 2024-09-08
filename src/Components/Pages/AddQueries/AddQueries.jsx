@@ -57,6 +57,7 @@ const AddQueries = () => {
                                 <label htmlFor="lastname" className="md:text-xl font-semibold">Product Brand</label>
                                 <input id="lastname" type="text" placeholder="Product Brand" className="w-full pl-3 h-12  rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300" name='productBrand' />
                             </div>
+                            inp
                             <div className="col-span-full sm:col-span-3">
                                 <label htmlFor="firstname" className="md:text-xl font-semibold">Product Image-URL</label>
                                 <input id="firstname" type="url" placeholder="Product Image Url" className="w-full pl-3 h-12  rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300" name='productImg' />

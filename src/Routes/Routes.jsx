@@ -50,7 +50,7 @@ const router = createBrowserRouter([
             {
                 path: '/queries',
                 element: <Queries></Queries>,
-                loader: () => fetch('https://assignment-11-server-liard-five.vercel.app/queries')
+                // loader: () => fetch('https://assignment-11-server-liard-five.vercel.app/queries')
             },
             {
                 path: '/query-details/:id',
