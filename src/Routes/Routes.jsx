@@ -70,7 +70,7 @@ const router = createBrowserRouter([
             {
                 path: '/recommendation-for-me',
                 element: <PrivateRoute><RecoForMe></RecoForMe></PrivateRoute>,
-                loader: () => fetch('https://assignment-11-server-liard-five.vercel.app/recommendation')
+                // loader: () => fetch('https://assignment-11-server-liard-five.vercel.app/recommendation')
             }
         ]
     },

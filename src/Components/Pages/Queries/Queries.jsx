@@ -8,54 +8,76 @@ import useAxiosPublic from "../../../hooks/usePublic";
 import axios from "axios";
 
 const Queries = () => {
+  const [loderQueries, setLoderQueries] = useState([]);
   const [layout, setLayout] = useState(false);
-  const [selected, setSlected] = useState();
+  const [selected, setSlected] = useState(null);
+  const [searching, setSearching] = useState(null);
   const axiosPublic = useAxiosPublic();
 
-  const { data: loderQueries = [] } = useQuery({
-    queryKey: ["queries"],
-    queryFn: async () => {
-      const res = await axiosPublic.get("/queries");
-      return res.data;
-    },
-  });
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        //  setLoading(true);
+        const res = await axiosPublic.get(
+          `/queries?sorting=${selected}&&search=${searching}`
+        );
+        setLoderQueries(res.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+  }, [selected, searching]);
+  console.log(loderQueries);
+  const handelShortingBtn = (e) => {
+    setSlected(e.target.value);
+  };
 
+  // const { data: loderQueries = [] } = useQuery({
+  //   queryKey: ["queries"],
+  //   queryFn: async () => {
+  //     const res = await axiosPublic.get(`/queries?sort=${selected}`);
+  //     // setSlecteda(res.data)
+  //     return res.data;
+  //   },
+  // });
+  // setSlecteda(loderQueries);
+  // console.log(selecteda);
   const handleToggle = () => {
     setLayout(!layout);
-    };
-    
+  };
+
   const handelSearchBtn = () => {
     const input = document.getElementById("seaarchValue");
     const inputValue = input.value;
-    const searchData = queriesData.filter(
-      (que) => que.productName === inputValue
-    );
-    setQueriesData(searchData);
-    console.log(input.value);
+    setSearching(inputValue)
+    // const searchData = queriesData.filter(
+    //   (que) => que.productName === inputValue
+    // );
+    // setQueriesData(searchData);
+    // console.log(input.value);
   };
-  const handelShortingBtn = (e) => {
-    setSlected(e.target.value);
-    // console.log(selected);
-    // console.log(myCraft);
-  };
+  console.log(searching)
+  // console.log(selected);
+
   //   console.log(selected);
-  if (selected === "Lowest Recommend") {
-    const lowest = queriesData.sort((a, b) =>
-      a.recommendationCount < b.recommendationCount
-        ? -1
-        : a.recommendationCount > b.recommendationCount
-        ? 1
-        : 0
-    );
-  } else if (selected === "Highest Recommend") {
-    const highest = queriesData.sort((a, b) =>
-      a.recommendationCount < b.recommendationCount
-        ? 1
-        : a.recommendationCount > b.recommendationCount
-        ? -1
-        : 0
-    );
-  }
+  // if (selected === "Lowest Recommend") {
+  //   const lowest = queriesData.sort((a, b) =>
+  //     a.recommendationCount < b.recommendationCount
+  //       ? -1
+  //       : a.recommendationCount > b.recommendationCount
+  //       ? 1
+  //       : 0
+  //   );
+  // } else if (selected === "Highest Recommend") {
+  //   const highest = queriesData.sort((a, b) =>
+  //     a.recommendationCount < b.recommendationCount
+  //       ? 1
+  //       : a.recommendationCount > b.recommendationCount
+  //       ? -1
+  //       : 0
+  //   );
+  // }
   return (
     <div className="md:mx-5 mx-3 mt-28">
       <Helmet>
@@ -94,8 +116,8 @@ const Queries = () => {
             <option disabled selected>
               Sort By
             </option>
-            <option>Highest Recommend</option>
-            <option>Lowest Recommend</option>
+            <option value="desc">Highest Recommend</option>
+            <option value="asc">Lowest Recommend</option>
           </select>
         </div>
 
