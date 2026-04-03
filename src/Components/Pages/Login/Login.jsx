@@ -10,7 +10,7 @@ const Login = () => {
     const { logInUserAccount, loginWithGoogle } = useAuth()
     const [showPassword, setShowPassword] = useState(false)
     const location = useLocation()
-    console.log(location);
+
     const showPasswordBtn = () => {
         setShowPassword(!showPassword)
     }
@@ -31,7 +31,8 @@ const Login = () => {
                 form.reset()
                 navigate(location?.state ? location.state : '/')
             })
-            .catch(error => {
+            .catch((error) => {
+                console.log(error);
                 Swal.fire({
                     icon: "error",
                     title: "Oops...",

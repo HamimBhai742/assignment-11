@@ -10,12 +10,12 @@ const MyQueries = () => {
     const { user } = useAuth()
     const [myQue, setMyQue] = useState([])
     useEffect(() => {
-        axios.get(`http://localhost:5000/my-queries?email=${user?.email}`)
+        axios.get(`http://localhost:5000/my-queries?email=${user?.email}`,{withCredentials:true})
           .then((res) => {
-            const myQueriesData = res.data.filter(
-              (myQuery) => myQuery.userEmail === user?.email
-            );
-            setMyQue(myQueriesData);
+            // const myQueriesData = res.data.filter(
+            //   (myQuery) => myQuery.userEmail === user?.email
+            // );
+            setMyQue(res.data);
           });
     }, [user])
     const [text] = useTypewriter({

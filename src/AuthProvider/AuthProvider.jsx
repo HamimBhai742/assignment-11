@@ -35,16 +35,22 @@ const AuthProvider = ({ children }) => {
             const emailUser = currentUser?.email || user?.email
             const loggedUser = { email: emailUser }
             if (currentUser) {
-                axios.post('https://assignment-11-server-liard-five.vercel.app/jwt', loggedUser, { withCredentials: true })
-                    .then(res => {
-                        console.log(res.data);
-                    })
+                axios
+                  .post("http://localhost:5000/jwt", loggedUser, {
+                    withCredentials: true,
+                  })
+                  .then((res) => {
+                    console.log(res.data);
+                  });
             }
             else {
-                axios.post('https://assignment-11-server-liard-five.vercel.app/logout', loggedUser, { withCredentials: true })
-                    .then(res => {
-                        console.log(res.data);
-                    })
+                axios
+                  .post("http://localhost:5000/logout", loggedUser, {
+                    withCredentials: true,
+                  })
+                  .then((res) => {
+                    console.log(res.data);
+                  });
             }
         })
         return () => {

@@ -50,7 +50,6 @@ const router = createBrowserRouter([
             {
                 path: '/queries',
                 element: <Queries></Queries>,
-                // loader: () => fetch('https://assignment-11-server-liard-five.vercel.app/queries')
             },
             {
                 path: '/query-details/:id',
@@ -65,12 +64,10 @@ const router = createBrowserRouter([
             {
                 path: '/my-recommendation',
                 element: <PrivateRoute><MyRecommendation></MyRecommendation></PrivateRoute>,
-                // loader: () => fetch('https://assignment-11-server-liard-five.vercel.app/queries')
             },
             {
                 path: '/recommendation-for-me',
                 element: <PrivateRoute><RecoForMe></RecoForMe></PrivateRoute>,
-                // loader: () => fetch('https://assignment-11-server-liard-five.vercel.app/recommendation')
             }
         ]
     },

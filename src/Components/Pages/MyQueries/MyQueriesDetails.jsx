@@ -8,14 +8,12 @@ import { Fade } from "react-awesome-reveal";
 const MyQueriesDetails = ({ myQuery, setMyQue, myQue }) => {
     const { user } = useAuth()
     const { userEmail, boycottingReason, queryTitel, currentDateAndTime, productBrand, userName, userPhoto, productImg, _id, productName } = myQuery
-    console.log(myQuery);
     const navigate = useNavigate()
     const handelViewDetailsBtn = (id) => {
 
         navigate(`/query-details/${id}`)
     }
     const handeldeleteBtn = (id) => {
-        console.log(id);
         Swal.fire({
             title: "Are you sure?",
             text: "You want delete this!",
